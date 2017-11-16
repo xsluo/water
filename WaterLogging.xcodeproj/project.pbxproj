@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA396A921FBDCE3600CF1AE1 /* ModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396A911FBDCE3600CF1AE1 /* ModelData.m */; };
+		AA396AC11FBE02E200CF1AE1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396AC01FBE02E200CF1AE1 /* ViewController.m */; };
+		AA396AC41FBE02F400CF1AE1 /* XDMultTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396AC31FBE02F400CF1AE1 /* XDMultTableView.m */; };
+		AA95D5861FBBC8A4008E2573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D5851FBBC8A4008E2573 /* main.m */; };
+		AA95D5891FBBC8A5008E2573 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D5881FBBC8A5008E2573 /* AppDelegate.m */; };
+		AA95D58C1FBBC8A5008E2573 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D58B1FBBC8A5008E2573 /* FirstViewController.m */; };
+		AA95D58F1FBBC8A5008E2573 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D58E1FBBC8A5008E2573 /* ThirdViewController.m */; };
+		AA95D5921FBBC8A5008E2573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5901FBBC8A5008E2573 /* Main.storyboard */; };
+		AA95D5941FBBC8A5008E2573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5931FBBC8A5008E2573 /* Assets.xcassets */; };
+		AA95D5971FBBC8A5008E2573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */; };
+		DFFB05F092416578B10ABA11 /* libPods-WaterLogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A82101A51494FA567432CBF8 /* libPods-WaterLogging.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8E09F56B6636A4C49ABC0088 /* Pods-WaterLogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterLogging.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaterLogging/Pods-WaterLogging.release.xcconfig"; sourceTree = "<group>"; };
+		A82101A51494FA567432CBF8 /* libPods-WaterLogging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WaterLogging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA396A901FBDCE3600CF1AE1 /* ModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelData.h; path = WaterLogging/ModelData.h; sourceTree = "<group>"; };
+		AA396A911FBDCE3600CF1AE1 /* ModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelData.m; path = WaterLogging/ModelData.m; sourceTree = "<group>"; };
+		AA396ABF1FBE02E200CF1AE1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AA396AC01FBE02E200CF1AE1 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AA396AC21FBE02F400CF1AE1 /* XDMultTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMultTableView.h; sourceTree = "<group>"; };
+		AA396AC31FBE02F400CF1AE1 /* XDMultTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMultTableView.m; sourceTree = "<group>"; };
+		AA4BE4A21FBD625200A81207 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		AA95D5811FBBC8A4008E2573 /* WaterLogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterLogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA95D5851FBBC8A4008E2573 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AA95D5871FBBC8A5008E2573 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AA95D5881FBBC8A5008E2573 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AA95D58A1FBBC8A5008E2573 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		AA95D58B1FBBC8A5008E2573 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		AA95D58D1FBBC8A5008E2573 /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		AA95D58E1FBBC8A5008E2573 /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		AA95D5911FBBC8A5008E2573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA95D5931FBBC8A5008E2573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA95D5961FBBC8A5008E2573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AA95D5981FBBC8A5008E2573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3CAFBB546A2723CC5B9BEE8 /* Pods-WaterLogging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterLogging.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaterLogging/Pods-WaterLogging.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA95D57E1FBBC8A3008E2573 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFFB05F092416578B10ABA11 /* libPods-WaterLogging.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6F6F476F5D367B2B4062FE84 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3CAFBB546A2723CC5B9BEE8 /* Pods-WaterLogging.debug.xcconfig */,
+				8E09F56B6636A4C49ABC0088 /* Pods-WaterLogging.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA95D5781FBBC8A3008E2573 = {
+			isa = PBXGroup;
+			children = (
+				AA95D5A11FBBF3AF008E2573 /* Model */,
+				AA95D5831FBBC8A4008E2573 /* WaterLogging */,
+				AA95D5821FBBC8A4008E2573 /* Products */,
+				6F6F476F5D367B2B4062FE84 /* Pods */,
+				C466AE959A3135419648F498 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AA95D5821FBBC8A4008E2573 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA95D5811FBBC8A4008E2573 /* WaterLogging.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA95D5831FBBC8A4008E2573 /* WaterLogging */ = {
+			isa = PBXGroup;
+			children = (
+				AA396AC21FBE02F400CF1AE1 /* XDMultTableView.h */,
+				AA396AC31FBE02F400CF1AE1 /* XDMultTableView.m */,
+				AA95D5871FBBC8A5008E2573 /* AppDelegate.h */,
+				AA95D5881FBBC8A5008E2573 /* AppDelegate.m */,
+				AA95D58A1FBBC8A5008E2573 /* FirstViewController.h */,
+				AA95D58B1FBBC8A5008E2573 /* FirstViewController.m */,
+				AA396ABF1FBE02E200CF1AE1 /* ViewController.h */,
+				AA396AC01FBE02E200CF1AE1 /* ViewController.m */,
+				AA95D58D1FBBC8A5008E2573 /* ThirdViewController.h */,
+				AA95D58E1FBBC8A5008E2573 /* ThirdViewController.m */,
+				AA95D5901FBBC8A5008E2573 /* Main.storyboard */,
+				AA95D5931FBBC8A5008E2573 /* Assets.xcassets */,
+				AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */,
+				AA95D5981FBBC8A5008E2573 /* Info.plist */,
+				AA95D5841FBBC8A4008E2573 /* Supporting Files */,
+			);
+			path = WaterLogging;
+			sourceTree = "<group>";
+		};
+		AA95D5841FBBC8A4008E2573 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA95D5851FBBC8A4008E2573 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA95D5A11FBBF3AF008E2573 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA396A901FBDCE3600CF1AE1 /* ModelData.h */,
+				AA396A911FBDCE3600CF1AE1 /* ModelData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C466AE959A3135419648F498 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA4BE4A21FBD625200A81207 /* libxml2.tbd */,
+				A82101A51494FA567432CBF8 /* libPods-WaterLogging.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA95D5801FBBC8A3008E2573 /* WaterLogging */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA95D59B1FBBC8A5008E2573 /* Build configuration list for PBXNativeTarget "WaterLogging" */;
+			buildPhases = (
+				5AA49ACC74EC433616C57021 /* [CP] Check Pods Manifest.lock */,
+				AA95D57D1FBBC8A3008E2573 /* Sources */,
+				AA95D57E1FBBC8A3008E2573 /* Frameworks */,
+				AA95D57F1FBBC8A3008E2573 /* Resources */,
+				4319C2D3BF56DB0F643B38B2 /* [CP] Embed Pods Frameworks */,
+				C48E45C636968196A6B15B31 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaterLogging;
+			productName = WaterLogging;
+			productReference = AA95D5811FBBC8A4008E2573 /* WaterLogging.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA95D5791FBBC8A3008E2573 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = xsluo;
+				TargetAttributes = {
+					AA95D5801FBBC8A3008E2573 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = KVC8NZTYE2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AA95D57C1FBBC8A3008E2573 /* Build configuration list for PBXProject "WaterLogging" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA95D5781FBBC8A3008E2573;
+			productRefGroup = AA95D5821FBBC8A4008E2573 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA95D5801FBBC8A3008E2573 /* WaterLogging */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA95D57F1FBBC8A3008E2573 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA95D5971FBBC8A5008E2573 /* LaunchScreen.storyboard in Resources */,
+				AA95D5941FBBC8A5008E2573 /* Assets.xcassets in Resources */,
+				AA95D5921FBBC8A5008E2573 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4319C2D3BF56DB0F643B38B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaterLogging/Pods-WaterLogging-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AA49ACC74EC433616C57021 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C48E45C636968196A6B15B31 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaterLogging/Pods-WaterLogging-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA95D57D1FBBC8A3008E2573 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA396AC41FBE02F400CF1AE1 /* XDMultTableView.m in Sources */,
+				AA396AC11FBE02E200CF1AE1 /* ViewController.m in Sources */,
+				AA95D58F1FBBC8A5008E2573 /* ThirdViewController.m in Sources */,
+				AA396A921FBDCE3600CF1AE1 /* ModelData.m in Sources */,
+				AA95D5891FBBC8A5008E2573 /* AppDelegate.m in Sources */,
+				AA95D58C1FBBC8A5008E2573 /* FirstViewController.m in Sources */,
+				AA95D5861FBBC8A4008E2573 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AA95D5901FBBC8A5008E2573 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA95D5911FBBC8A5008E2573 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA95D5961FBBC8A5008E2573 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA95D5991FBBC8A5008E2573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AA95D59A1FBBC8A5008E2573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA95D59C1FBBC8A5008E2573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3CAFBB546A2723CC5B9BEE8 /* Pods-WaterLogging.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KVC8NZTYE2;
+				INFOPLIST_FILE = WaterLogging/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xsluo.www.WaterLogging;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA95D59D1FBBC8A5008E2573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E09F56B6636A4C49ABC0088 /* Pods-WaterLogging.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KVC8NZTYE2;
+				INFOPLIST_FILE = WaterLogging/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xsluo.www.WaterLogging;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA95D57C1FBBC8A3008E2573 /* Build configuration list for PBXProject "WaterLogging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA95D5991FBBC8A5008E2573 /* Debug */,
+				AA95D59A1FBBC8A5008E2573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA95D59B1FBBC8A5008E2573 /* Build configuration list for PBXNativeTarget "WaterLogging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA95D59C1FBBC8A5008E2573 /* Debug */,
+				AA95D59D1FBBC8A5008E2573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA95D5791FBBC8A3008E2573 /* Project object */;
+}
