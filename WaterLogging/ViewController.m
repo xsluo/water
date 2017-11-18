@@ -27,9 +27,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    //self.navigationItem.title = @"我是多级列表";
-    
-    _tableView = [[XDMultTableView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-60)];
+    _tableView = [[XDMultTableView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-120)];
     _tableView.openSectionArray = [NSArray arrayWithObjects:@1,@2, nil];
     _tableView.delegate = self;
     _tableView.datasource = self;
@@ -79,10 +77,6 @@
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if(data){
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            // NSLog(@"%d", data.length);
-            // NSString *outString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            // NSLog(@"%@",outString);
-            //self.outStr = [NSMutableString stringWithFormat:@"%@",outString];
             
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSMutableArray *arrs = [dic objectForKey:@"content"];

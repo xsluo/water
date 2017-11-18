@@ -110,108 +110,99 @@
         rect.origin.y -= 20;
     }
     btAdd.frame = rect;
+    self.upButton.userInteractionEnabled = YES;
 }
 
 #pragma mark 文件上传
 - (IBAction)upLoad:(id)sender {
-    
-    
-}
-
-
-    /*
-//得到图片或者视频后, 调用该代理方法
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    //在这个方法里我们可以进行图片的修改, 保存, 或者视频的保存
-    // UIImagePickerControllerOriginalImage 原始图片
-    // UIImagePickerControllerEditedImage 编辑后图片
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    self.imageView.image = image;
-    
-    NSString *imageDocPath = [self getImageSavePath];//保存
-    self.photoUrl = imageDocPath;
-    NSLog(@"imageDocPath == %@", imageDocPath);
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-}
-//当用户取消相册时, 调用该方法
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
-//在这里创建一个路径，用来在照相的代理方法里作为照片存储的路径
--(NSString *)getImageSavePath{
-    //获取存放的照片
-    //获取Documents文件夹目录
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentPath = [path objectAtIndex:0];
-    //指定新建文件夹路径
-    NSString *imageDocPath = [documentPath stringByAppendingPathComponent:@"PhotoFile"];
-    return imageDocPath;
-}
-
-*/
-   /*
-    
-- (IBAction)upLoad:(id)sender {
-    
-    //1.创建管理者对象
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    //2.上传文件,在这里我们还要求传别的参数，用字典保存一下，不需要的童鞋可以省略此步骤
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:self.contactName,@"name",self.contactPhone,@"phone",self.content,@"content", nil];
-    
-    
     NSString *urlString = @"http://183.238.82.216:9090/waterlogging/android/upload/save";
+    NSLog(@"upload--");
+    NSURL *URL = [[NSURL alloc]initWithString:urlString];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:URL cachePolicy:(NSURLRequestUseProtocolCachePolicy) timeoutInterval:30];
+    request.HTTPMethod = @"POST";
     
+    // 2.设置请求头和请求体
+    NSString *boundary = @"myBoundary";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"*/*" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"ios+android" forHTTPHeaderField:@"User-Agent"];
+    [request setValue:@"myBoundary" forHTTPHeaderField:@"boundary"];
     
-    //post请求
-    [manager POST:urlString parameters:dict constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
-        // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
-        // 要解决此问题，
-        // 可以在上传时使用当前的系统事件作为文件名
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        // 设置时间格式
-        formatter.dateFormat            = @"yyyyMMddHHmmss";
-        NSString *str                         = [formatter stringFromDate:[NSDate date]];
-        NSString *fileName               = [NSString stringWithFormat:@"%@.png", str];
-        
-        
-        /*
-         此方法参数
-         1. 要上传的[二进制数据]
-         2. 我这里的imgFile是对应后台给你url里面的图片参数，别瞎带。
-         3. 要保存在服务器上的[文件名]
-         4. 上传文件的[mimeType]
+    NSMutableData *bodydata = [self buildBody];
     
-     //   [formData appendPartWithFileData:imageData name:@"imgFile" fileName:fileName mimeType:@"image/png"];
+    //3 session
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    //4 task
+    /*
+     Request:请求对象
+     fromData:请求体
+     */
+    NSURLSessionUploadTask *task = [session uploadTaskWithRequest:request fromData:bodydata completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-        //打印下上传进度
-        NSLog(@"%lf",1.0 *uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        //请求成功
-        NSLog(@"请求成功：%@",responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        //请求失败
-        NSLog(@"请求失败：%@",error);
+        NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"data++++++++++++++++++++++%@",dataString);
+        NSLog(@"response======================= %@",response);
+        NSLog(@"error----------------------%@",error);
     }];
     
+    //5 resume
+    [task resume];
 }
-*/
 
-
-
-
-
-
-
-
-
+-(NSMutableData *)buildBody{
+    
+    NSMutableString *bodyStr = [NSMutableString string];
+    NSString *boundary = @"helloworld";
+    
+    //1 pic
+    /*
+     --AaB03x
+     Content-disposition: form-data; name="pic"; filename="file"
+     Content-Type: application/octet-stream
+     */
+    
+    [bodyStr appendFormat:@"--%@\r\n",boundary];
+    [bodyStr appendFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"file\""];
+    [bodyStr appendFormat:@"\r\n"];
+    [bodyStr appendFormat:@"Content-Type: application/octet-stream"];
+    [bodyStr appendFormat:@"\r\n\r\n"];
+    
+    //2 姓名
+    [bodyStr appendFormat:@"--%@\r\n",boundary];//\n:换行 \n:切换到行首
+    [bodyStr appendFormat:@"Content-Disposition: form-data; name=\"reportor\""];
+    [bodyStr appendFormat:@"\r\n\r\n"];
+    [bodyStr appendFormat:@"%@\r\n",self.contactName.text];
+    
+    //3 电话
+    [bodyStr appendFormat:@"--%@\r\n",boundary];//\n:换行 \n:切换到行首
+    [bodyStr appendFormat:@"Content-Disposition: form-data; name=\"phone\""];
+    [bodyStr appendFormat:@"\r\n\r\n"];
+    [bodyStr appendFormat:@"%@\r\n",self.contactPhone.text];
+    
+    //3 内容
+    [bodyStr appendFormat:@"--%@\r\n",boundary];//\n:换行 \n:切换到行首
+    [bodyStr appendFormat:@"Content-Disposition: form-data; name=\"reportContent\""];
+    [bodyStr appendFormat:@"\r\n\r\n"];
+    [bodyStr appendFormat:@"%@\r\n",self.content.text];
+    
+    NSMutableData *bodyData = [NSMutableData data];
+    
+    //(1)startData
+    NSData *startData = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:startData];
+    
+    //(2)pic
+    NSData *picdata  = self.fileData;
+    
+    [bodyData appendData:picdata];
+    
+    //(3)--Str--
+    NSString *endStr = [NSString stringWithFormat:@"\r\n--%@--\r\n",boundary];
+    NSData *endData = [endStr dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:endData];    
+    return bodyData;
+}
 
 @end
