@@ -47,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="748" y="-321.58920539730138"/>
         </scene>
-        <!--上传-->
+        <!--上报情况-->
         <scene sceneID="HHC-Cb-UPf">
             <objects>
                 <viewController id="Jsv-LJ-pxt" customClass="ThirdViewController" sceneMemberID="viewController">
@@ -146,7 +146,7 @@
                             <constraint firstItem="3ze-vy-n3n" firstAttribute="top" secondItem="H2T-bx-2q5" secondAttribute="bottom" id="nuu-bh-byt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="上传" image="bars.png" selectedImage="bars2.png" id="AvJ-ZV-qRc"/>
+                    <tabBarItem key="tabBarItem" title="上报情况" image="bars.png" selectedImage="bars2.png" id="AvJ-ZV-qRc"/>
                     <connections>
                         <outlet property="contactName" destination="pfs-Mf-Xfx" id="nc5-B1-Gn0"/>
                         <outlet property="contactPhone" destination="9Qf-sG-ghl" id="mAf-zW-aQQ"/>
