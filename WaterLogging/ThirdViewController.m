@@ -11,6 +11,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "MBProgressHUD/MBProgressHUD.h"
 
 @interface ThirdViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *contactName;
@@ -35,9 +36,18 @@
     self.imageView = [[UIImageView alloc]init];
     self.photoUrl = [[NSString alloc]init];
     // Do any additional setup after loading the view, typically from a nib.
-    self.upButton.userInteractionEnabled = NO;
+    self.upButton.userInteractionEnabled = NO; //没有照片按钮不可用
+    
+    self.view.userInteractionEnabled = YES;
 }
 
+
+- (IBAction)tapupView:(id)sender {
+    [self.contactPhone resignFirstResponder];
+    [self.contactName resignFirstResponder];
+    [self.content resignFirstResponder];
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -95,6 +105,16 @@
         UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
         }
         
+        UIButton *btAdd = (UIButton * )[self.view viewWithTag:101];
+        CGRect rect = btAdd.frame;
+        if(rect.origin.x < 100){
+            rect.origin.x += 120;
+            rect.origin.y -= 20;
+        }
+        btAdd.frame = rect;
+        self.upButton.userInteractionEnabled = YES;
+        
+        
         //上传图片
         //[self uploadImageWithData:fileData];
     }
@@ -103,15 +123,10 @@
 
 #pragma mark 图片保存完毕的回调
 - (void) image: (UIImage *) image didFinishSavingWithError:(NSError *) error contextInfo: (void *)contextInf{
-    UIButton *btAdd = (UIButton * )[self.view viewWithTag:101];
-    CGRect rect = btAdd.frame;
-    if(rect.origin.x < 100){
-         rect.origin.x += 120;
-        rect.origin.y -= 20;
-    }
-    btAdd.frame = rect;
-    self.upButton.userInteractionEnabled = YES;
+    
 }
+
+
 
 #pragma mark 文件上传
 - (IBAction)upLoad:(id)sender {
@@ -139,17 +154,23 @@
      Request:请求对象
      fromData:请求体
      */
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     NSURLSessionUploadTask *task = [session uploadTaskWithRequest:request fromData:bodydata completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+      //  NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
         NSLog(@"data++++++++++++++++++++++%@",dataString);
         NSLog(@"response======================= %@",response);
         NSLog(@"error----------------------%@",error);
     }];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     
     //5 resume
     [task resume];
 }
+
 
 -(NSMutableData *)buildBody{
     

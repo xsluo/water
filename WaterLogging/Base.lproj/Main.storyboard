@@ -55,7 +55,7 @@
                         <viewControllerLayoutGuide type="top" id="H2T-bx-2q5"/>
                         <viewControllerLayoutGuide type="bottom" id="UcK-P7-rbg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rQZ-4g-rc0" customClass="t">
+                    <view key="view" contentMode="scaleToFill" id="rQZ-4g-rc0" customClass="UIButton">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -84,21 +84,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfs-Mf-Xfx">
-                                <rect key="frame" x="123" y="225" width="206" height="30"/>
+                                <rect key="frame" x="123" y="225" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入联系电话" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Qf-sG-ghl">
-                                <rect key="frame" x="123" y="270" width="206" height="30"/>
+                                <rect key="frame" x="123" y="270" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="请输入内容，字数少于120" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fun-nK-KZi">
-                                <rect key="frame" x="28" y="352" width="301" height="166"/>
+                                <rect key="frame" x="28" y="352" width="284" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,8 +119,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-B8-rTw">
+                                <rect key="frame" x="40" y="161" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="Jsv-LJ-pxt" eventType="touchUpInside" id="m2H-ph-9pJ"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLN-od-BY1">
-                                <rect key="frame" x="140" y="538" width="96" height="30"/>
+                                <rect key="frame" x="139" y="474" width="96" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="提交">
@@ -128,13 +135,6 @@
                                 </state>
                                 <connections>
                                     <action selector="upLoad:" destination="Jsv-LJ-pxt" eventType="touchUpInside" id="8WZ-Em-WCh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-B8-rTw">
-                                <rect key="frame" x="40" y="161" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="takePhoto:" destination="Jsv-LJ-pxt" eventType="touchUpInside" id="m2H-ph-9pJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -145,6 +145,9 @@
                             <constraint firstItem="3ze-vy-n3n" firstAttribute="centerX" secondItem="rQZ-4g-rc0" secondAttribute="centerX" id="gce-xo-qTU"/>
                             <constraint firstItem="3ze-vy-n3n" firstAttribute="top" secondItem="H2T-bx-2q5" secondAttribute="bottom" id="nuu-bh-byt"/>
                         </constraints>
+                        <connections>
+                            <action selector="tapupView:" destination="Jsv-LJ-pxt" eventType="touchUpInside" id="kkE-nN-7fm"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="上报情况" image="bars.png" selectedImage="bars2.png" id="AvJ-ZV-qRc"/>
                     <connections>

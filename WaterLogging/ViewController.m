@@ -28,11 +28,15 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     _tableView = [[XDMultTableView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-120)];
-    _tableView.openSectionArray = [NSArray arrayWithObjects:@1,@2, nil];
+    //_tableView.openSectionArray = [NSArray arrayWithObjects:@1,@2, nil];
+    _tableView.openSectionArray = [NSArray arrayWithObjects:@0,nil];
     _tableView.delegate = self;
     _tableView.datasource = self;
     _tableView.backgroundColor = [UIColor whiteColor];
-    _tableView.autoAdjustOpenAndClose = NO;
+    
+    
+   // _tableView.autoAdjustOpenAndClose = NO;
+
     [self.view addSubview:_tableView];
     
     [self  loadData];
@@ -133,6 +137,11 @@
         return 0;
     }
 }
+
+- (void)mTableView:(XDMultTableView *)maTbleView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    view.tintColor = [UIColor whiteColor];
+}
+
 /*
  - (XDMultTableViewCell *)mTableView:(XDMultTableView *)mTableView
  cellForRowAtIndexPath:(NSIndexPath *)indexPath{

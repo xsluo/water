@@ -30,6 +30,7 @@ static const CGFloat CELLHEIGHT = 44.0f;
         _tableView.dataSource = self;
         _tableView.backgroundColor  = [UIColor clearColor];
         _tableView.separatorStyle   = UITableViewCellSeparatorStyleNone;
+      
         
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
