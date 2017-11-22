@@ -12,8 +12,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "MBProgressHUD/MBProgressHUD.h"
+#import <Foundation/Foundation.h>
 
-@interface ThirdViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ThirdViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,NSXMLParserDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *contactName;
 @property (weak, nonatomic) IBOutlet UITextField *contactPhone;
 @property (weak, nonatomic) IBOutlet UITextView *content;
@@ -22,6 +23,8 @@
 @property UIImagePickerController *imagePickerController;
 @property (strong,nonatomic)  UIImageView *imageView;
 @property (strong,nonatomic)  NSData *fileData;
+@property (nonatomic,strong) NSString *responsString;
+@property (nonatomic,strong) NSString *currentElementName;
 @end
 
 @implementation ThirdViewController
@@ -36,9 +39,27 @@
     self.imageView = [[UIImageView alloc]init];
     self.photoUrl = [[NSString alloc]init];
     // Do any additional setup after loading the view, typically from a nib.
-    self.upButton.userInteractionEnabled = NO; //没有照片按钮不可用
+    //self.upButton.userInteractionEnabled = NO; //没有照片按钮不可用
+    
+    self.content.delegate = self;
     
     self.view.userInteractionEnabled = YES;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+   self.content.text = @"";
+}
+//限制字符数
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if([text isEqualToString:@""]){
+        return YES;
+    }
+    if(range.location>=120){
+        return NO;
+    }else
+    {
+        return YES;
+    }
 }
 
 
@@ -114,7 +135,6 @@
         btAdd.frame = rect;
         self.upButton.userInteractionEnabled = YES;
         
-        
         //上传图片
         //[self uploadImageWithData:fileData];
     }
@@ -130,6 +150,8 @@
 
 #pragma mark 文件上传
 - (IBAction)upLoad:(id)sender {
+   // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     NSString *urlString = @"http://183.238.82.216:9090/waterlogging/android/upload/save";
     NSLog(@"upload--");
     NSURL *URL = [[NSURL alloc]initWithString:urlString];
@@ -137,12 +159,15 @@
     request.HTTPMethod = @"POST";
     
     // 2.设置请求头和请求体
-    NSString *boundary = @"myBoundary";
+    NSString *boundary = @"helloworld";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
     [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"*/*" forHTTPHeaderField:@"Accept"];
     [request setValue:@"ios+android" forHTTPHeaderField:@"User-Agent"];
-    [request setValue:@"myBoundary" forHTTPHeaderField:@"boundary"];
+    [request setValue:@"helloworld" forHTTPHeaderField:@"boundary"];
+    
+    NSLog(@"request---------%@",request.allHTTPHeaderFields);
+    
     
     NSMutableData *bodydata = [self buildBody];
     
@@ -154,7 +179,7 @@
      Request:请求对象
      fromData:请求体
      */
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
     
     NSURLSessionUploadTask *task = [session uploadTaskWithRequest:request fromData:bodydata completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
@@ -164,13 +189,18 @@
         NSLog(@"data++++++++++++++++++++++%@",dataString);
         NSLog(@"response======================= %@",response);
         NSLog(@"error----------------------%@",error);
+        
+        //  开始解析
+        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
+        xmlParser.delegate = self;
+        [xmlParser parse];
     }];
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-    
-    //5 resume
-    [task resume];
-}
 
+    
+       //5 resume
+    [task resume];
+   
+}
 
 -(NSMutableData *)buildBody{
     
@@ -183,11 +213,19 @@
      Content-disposition: form-data; name="pic"; filename="file"
      Content-Type: application/octet-stream
      */
+    //获取系统时间
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"YYMMddHHmmss"];
+    NSString *dateTime = [formatter stringFromDate:[NSDate date]];
+    
+    NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@.jpeg\"",dateTime];
     
     [bodyStr appendFormat:@"--%@\r\n",boundary];
-    [bodyStr appendFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"file\""];
+   // [bodyStr appendFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"file\""];
+    [bodyStr appendFormat:@"%@", appendfile];
     [bodyStr appendFormat:@"\r\n"];
-    [bodyStr appendFormat:@"Content-Type: application/octet-stream"];
+    //[bodyStr appendFormat:@"Content-Type: application/octet-stream"];
+    [bodyStr appendFormat:@"Content-Type: application/jpeg"];
     [bodyStr appendFormat:@"\r\n\r\n"];
     
     //2 姓名
@@ -207,9 +245,11 @@
     [bodyStr appendFormat:@"Content-Disposition: form-data; name=\"reportContent\""];
     [bodyStr appendFormat:@"\r\n\r\n"];
     [bodyStr appendFormat:@"%@\r\n",self.content.text];
+    [bodyStr appendFormat:@"--%@--\r\n",boundary];//\n:换行 \n:切换到行首
+    
     
     NSMutableData *bodyData = [NSMutableData data];
-    
+    NSLog(@"%@",bodyStr);
     //(1)startData
     NSData *startData = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
     [bodyData appendData:startData];
@@ -226,4 +266,55 @@
     return bodyData;
 }
 
+# pragma mark - 协议方法
+
+// 开始
+- (void)parserDidStartDocument:(NSXMLParser *)parser {
+    self.responsString = [[NSString alloc]init];
+}
+
+// 获取节点头
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
+    self.currentElementName = elementName;
+    if ([elementName isEqualToString:@"msg"]) {
+         self.responsString = [[NSString alloc] init];
+    }
+}
+
+// 获取节点的值 (这个方法在获取到节点头和节点尾后，会分别调用一次)
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+    NSLog(@"value : %@", string);
+    if ([_currentElementName isEqualToString:@"msg"]) {
+        self.responsString = string;
+    }
+}
+
+// 获取节点尾
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+    _currentElementName = nil;
+    NSLog(@"end element :%@", elementName);
+}
+
+// 结束
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"结果" message:self.responsString preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    //[MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+-(void)endhub{
+    
+    
+}
+
 @end
+
+
+
+
+
+
+
+
