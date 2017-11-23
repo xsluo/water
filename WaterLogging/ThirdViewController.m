@@ -75,6 +75,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 拍照
 - (IBAction)takePhoto:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"选择图片"  message:nil preferredStyle: UIAlertControllerStyleActionSheet];
     UIAlertAction *Cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -103,7 +104,7 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-//  拍照完毕，保存图片
+#pragma mark - 拍照完毕，保存图片
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     NSString *mediaType=[info objectForKey:UIImagePickerControllerMediaType];
     //判断资源类型
@@ -141,14 +142,14 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark 图片保存完毕的回调
+#pragma mark -图片保存完毕的回调
 - (void) image: (UIImage *) image didFinishSavingWithError:(NSError *) error contextInfo: (void *)contextInf{
     
 }
 
 
 
-#pragma mark 文件上传
+#pragma mark - 文件上传
 - (IBAction)upLoad:(id)sender {
    // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -174,32 +175,20 @@
     //3 session
     NSURLSession *session = [NSURLSession sharedSession];
     
-    //4 task
-    /*
-     Request:请求对象
-     fromData:请求体
-     */
-
-    
     NSURLSessionUploadTask *task = [session uploadTaskWithRequest:request fromData:bodydata completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-      //  NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         
         NSLog(@"data++++++++++++++++++++++%@",dataString);
         NSLog(@"response======================= %@",response);
         NSLog(@"error----------------------%@",error);
-        
         //  开始解析
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
         xmlParser.delegate = self;
         [xmlParser parse];
     }];
-
-    
        //5 resume
     [task resume];
-   
 }
 
 -(NSMutableData *)buildBody{
@@ -218,7 +207,7 @@
     [formatter setDateFormat:@"YYMMddHHmmss"];
     NSString *dateTime = [formatter stringFromDate:[NSDate date]];
     
-    NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@.jpeg\"",dateTime];
+    NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@.jpg\"",dateTime];
     
     [bodyStr appendFormat:@"--%@\r\n",boundary];
    // [bodyStr appendFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"file\""];
