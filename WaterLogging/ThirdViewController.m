@@ -39,7 +39,7 @@
     self.imageView = [[UIImageView alloc]init];
     self.photoUrl = [[NSString alloc]init];
     // Do any additional setup after loading the view, typically from a nib.
-    //self.upButton.userInteractionEnabled = NO; //没有照片按钮不可用
+    self.upButton.userInteractionEnabled = NO; //没有照片按钮不可用
     
     self.content.delegate = self;
     
@@ -87,7 +87,6 @@
         //设置摄像头模式（拍照、录制视频）
         self.imagePickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
         [self presentViewController:self.imagePickerController animated:YES completion:nil];
-        
     }];
     
     UIAlertAction *Album = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
@@ -118,9 +117,8 @@
         self.imageView = imageV;
         
         //压缩图片
-        //NSData *fileData = UIImageJPEGRepresentation(self.imageView.image, 1.0);
         self.fileData = [[NSData alloc]init];
-        self.fileData = UIImageJPEGRepresentation(self.imageView.image, 1.0);
+        self.fileData = UIImageJPEGRepresentation(self.imageView.image, 0.5);
         
         //如果是拍照，保存图片至相册
         if(self.imagePickerController.sourceType == UIImagePickerControllerSourceTypeCamera){
@@ -136,8 +134,6 @@
         btAdd.frame = rect;
         self.upButton.userInteractionEnabled = YES;
         
-        //上传图片
-        //[self uploadImageWithData:fileData];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -146,8 +142,6 @@
 - (void) image: (UIImage *) image didFinishSavingWithError:(NSError *) error contextInfo: (void *)contextInf{
     
 }
-
-
 
 #pragma mark - 文件上传
 - (IBAction)upLoad:(id)sender {
@@ -160,15 +154,14 @@
     request.HTTPMethod = @"POST";
     
     // 2.设置请求头和请求体
-    NSString *boundary = @"helloworld";
+    NSString *boundary = @"HS23dsdf435Sdfasd23A4dfDF43SA";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
     [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"*/*" forHTTPHeaderField:@"Accept"];
     [request setValue:@"ios+android" forHTTPHeaderField:@"User-Agent"];
-    [request setValue:@"helloworld" forHTTPHeaderField:@"boundary"];
+    [request setValue:@"HS23dsdf435Sdfasd23A4dfDF43SA" forHTTPHeaderField:@"boundary"];
     
     NSLog(@"request---------%@",request.allHTTPHeaderFields);
-    
     
     NSMutableData *bodydata = [self buildBody];
     
@@ -194,7 +187,7 @@
 -(NSMutableData *)buildBody{
     
     NSMutableString *bodyStr = [NSMutableString string];
-    NSString *boundary = @"helloworld";
+    NSString *boundary = @"HS23dsdf435Sdfasd23A4dfDF43SA";
     
     //1 pic
     /*
@@ -209,21 +202,13 @@
     
     NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@.jpg\"",dateTime];
     
-    [bodyStr appendFormat:@"--%@\r\n",boundary];
-   // [bodyStr appendFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"file\""];
-    [bodyStr appendFormat:@"%@", appendfile];
-    [bodyStr appendFormat:@"\r\n"];
-    //[bodyStr appendFormat:@"Content-Type: application/octet-stream"];
-    [bodyStr appendFormat:@"Content-Type: application/jpeg"];
-    [bodyStr appendFormat:@"\r\n\r\n"];
-    
-    //2 姓名
+    //1 姓名
     [bodyStr appendFormat:@"--%@\r\n",boundary];//\n:换行 \n:切换到行首
     [bodyStr appendFormat:@"Content-Disposition: form-data; name=\"reportor\""];
     [bodyStr appendFormat:@"\r\n\r\n"];
     [bodyStr appendFormat:@"%@\r\n",self.contactName.text];
     
-    //3 电话
+    //2 电话
     [bodyStr appendFormat:@"--%@\r\n",boundary];//\n:换行 \n:切换到行首
     [bodyStr appendFormat:@"Content-Disposition: form-data; name=\"phone\""];
     [bodyStr appendFormat:@"\r\n\r\n"];
@@ -234,8 +219,16 @@
     [bodyStr appendFormat:@"Content-Disposition: form-data; name=\"reportContent\""];
     [bodyStr appendFormat:@"\r\n\r\n"];
     [bodyStr appendFormat:@"%@\r\n",self.content.text];
-    [bodyStr appendFormat:@"--%@--\r\n",boundary];//\n:换行 \n:切换到行首
     
+    //4 图片
+    [bodyStr appendFormat:@"--%@\r\n",boundary];
+    [bodyStr appendFormat:@"%@", appendfile];
+    [bodyStr appendFormat:@"\r\n"];
+    //[bodyStr appendFormat:@"Content-Type: application/octet-stream"];
+    [bodyStr appendFormat:@"Content-Type: application/jpg"];
+    [bodyStr appendFormat:@"\r\n\r\n"];
+    
+    [bodyStr appendFormat:@"--%@--\r\n",boundary];//\n:换行 \n:切换到行首
     
     NSMutableData *bodyData = [NSMutableData data];
     NSLog(@"%@",bodyStr);
