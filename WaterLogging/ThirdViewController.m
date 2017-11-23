@@ -286,9 +286,19 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
--(void)endhub{
-    
-    
+#pragma mark - 检测上传进度
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
+   didSendBodyData:(int64_t)bytesSent
+    totalBytesSent:(int64_t)totalBytesSent
+totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
+{
+    float progress = (float)totalBytesSent / totalBytesExpectedToSend;
+    NSLog(@"%f %@", progress, [NSThread currentThread]);
+}
+
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
+{
+    NSLog(@"完成");
 }
 
 @end
