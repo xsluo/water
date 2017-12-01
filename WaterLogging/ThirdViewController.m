@@ -118,7 +118,7 @@
         
         //压缩图片
         self.fileData = [[NSData alloc]init];
-        self.fileData = UIImageJPEGRepresentation(self.imageView.image, 0.5);
+        self.fileData = UIImageJPEGRepresentation(self.imageView.image, 0.2);
         
         //如果是拍照，保存图片至相册
         if(self.imagePickerController.sourceType == UIImagePickerControllerSourceTypeCamera){
@@ -228,7 +228,7 @@
     [bodyStr appendFormat:@"Content-Type: application/jpg"];
     [bodyStr appendFormat:@"\r\n\r\n"];
     
-    [bodyStr appendFormat:@"--%@--\r\n",boundary];//\n:换行 \n:切换到行首
+   // [bodyStr appendFormat:@"--%@--\r\n",boundary];//\n:换行 \n:切换到行首
     
     NSMutableData *bodyData = [NSMutableData data];
     NSLog(@"%@",bodyStr);
@@ -238,7 +238,7 @@
     
     //(2)pic
     NSData *picdata  = self.fileData;
-    
+    NSLog(@"length----------------%lu",(unsigned long)picdata.length);
     [bodyData appendData:picdata];
     
     //(3)--Str--

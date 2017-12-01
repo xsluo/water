@@ -199,7 +199,7 @@
 				TargetAttributes = {
 					AA95D5801FBBC8A3008E2573 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = KVC8NZTYE2;
+						DevelopmentTeam = 4F8676AUE6;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -426,7 +426,7 @@
 			baseConfigurationReference = B3CAFBB546A2723CC5B9BEE8 /* Pods-WaterLogging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KVC8NZTYE2;
+				DEVELOPMENT_TEAM = 4F8676AUE6;
 				INFOPLIST_FILE = WaterLogging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -446,7 +446,7 @@
 					"\"SystemConfiguration\"",
 				);
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xsluo.www.WaterLogging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gykj.www.waterlogging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -456,7 +456,7 @@
 			baseConfigurationReference = 8E09F56B6636A4C49ABC0088 /* Pods-WaterLogging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KVC8NZTYE2;
+				DEVELOPMENT_TEAM = 4F8676AUE6;
 				INFOPLIST_FILE = WaterLogging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -476,7 +476,7 @@
 					"\"SystemConfiguration\"",
 				);
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xsluo.www.WaterLogging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gykj.www.waterlogging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
