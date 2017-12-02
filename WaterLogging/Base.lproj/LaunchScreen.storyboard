@@ -23,14 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="CwG-Fr-qnV">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="CwG-Fr-qnV" secondAttribute="trailing" id="2Vk-l6-Y4u"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CwG-Fr-qnV" secondAttribute="trailing" constant="-16" id="2Vk-l6-Y4u"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="CwG-Fr-qnV" secondAttribute="bottom" id="4os-gN-YRz"/>
-                            <constraint firstItem="CwG-Fr-qnV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="67B-2h-qfp"/>
+                            <constraint firstItem="CwG-Fr-qnV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-16" id="67B-2h-qfp"/>
                             <constraint firstItem="CwG-Fr-qnV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="XUw-Mz-hbV"/>
                         </constraints>
                     </view>
@@ -41,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash.png" width="414" height="736"/>
+        <image name="splash.png" width="1536" height="2008"/>
     </resources>
 </document>

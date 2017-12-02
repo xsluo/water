@@ -15,7 +15,6 @@
 		AA3AA3C51FBEAD860021D122 /* bars2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3AA3BD1FBEAD850021D122 /* bars2.png */; };
 		AA3AA3C61FBEAD860021D122 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3AA3BE1FBEAD850021D122 /* map.png */; };
 		AA3AA3C71FBEAD860021D122 /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3AA3BF1FBEAD850021D122 /* map2.png */; };
-		AA3AA3C81FBEAD860021D122 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3AA3C01FBEAD850021D122 /* splash.png */; };
 		AA3AA3C91FBEAD860021D122 /* upload.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3AA3C11FBEAD850021D122 /* upload.png */; };
 		AA3AA3CA1FBEAD860021D122 /* upload2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3AA3C21FBEAD860021D122 /* upload2.png */; };
 		AA95D5861FBBC8A4008E2573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D5851FBBC8A4008E2573 /* main.m */; };
@@ -25,6 +24,8 @@
 		AA95D5921FBBC8A5008E2573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5901FBBC8A5008E2573 /* Main.storyboard */; };
 		AA95D5941FBBC8A5008E2573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5931FBBC8A5008E2573 /* Assets.xcassets */; };
 		AA95D5971FBBC8A5008E2573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */; };
+		AAFCBEB11FD145D800E19497 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFCBEB01FD145D800E19497 /* splash.png */; };
+		AAFCBEB31FD1549600E19497 /* LaunchCSNL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAFCBEB21FD1549600E19497 /* LaunchCSNL.storyboard */; };
 		DFFB05F092416578B10ABA11 /* libPods-WaterLogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A82101A51494FA567432CBF8 /* libPods-WaterLogging.a */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +43,6 @@
 		AA3AA3BD1FBEAD850021D122 /* bars2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bars2.png; sourceTree = "<group>"; };
 		AA3AA3BE1FBEAD850021D122 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		AA3AA3BF1FBEAD850021D122 /* map2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2.png; sourceTree = "<group>"; };
-		AA3AA3C01FBEAD850021D122 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		AA3AA3C11FBEAD850021D122 /* upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload.png; sourceTree = "<group>"; };
 		AA3AA3C21FBEAD860021D122 /* upload2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload2.png; sourceTree = "<group>"; };
 		AA4BE4A21FBD625200A81207 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -58,6 +58,8 @@
 		AA95D5931FBBC8A5008E2573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA95D5961FBBC8A5008E2573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA95D5981FBBC8A5008E2573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFCBEB01FD145D800E19497 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		AAFCBEB21FD1549600E19497 /* LaunchCSNL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchCSNL.storyboard; sourceTree = "<group>"; };
 		B3CAFBB546A2723CC5B9BEE8 /* Pods-WaterLogging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterLogging.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaterLogging/Pods-WaterLogging.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,8 +91,8 @@
 				AA3AA3BC1FBEAD850021D122 /* bars.png */,
 				AA3AA3BD1FBEAD850021D122 /* bars2.png */,
 				AA3AA3BE1FBEAD850021D122 /* map.png */,
+				AAFCBEB01FD145D800E19497 /* splash.png */,
 				AA3AA3BF1FBEAD850021D122 /* map2.png */,
-				AA3AA3C01FBEAD850021D122 /* splash.png */,
 				AA3AA3C11FBEAD850021D122 /* upload.png */,
 				AA3AA3C21FBEAD860021D122 /* upload2.png */,
 			);
@@ -133,6 +135,7 @@
 				AA95D5901FBBC8A5008E2573 /* Main.storyboard */,
 				AA95D5931FBBC8A5008E2573 /* Assets.xcassets */,
 				AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */,
+				AAFCBEB21FD1549600E19497 /* LaunchCSNL.storyboard */,
 				AA95D5981FBBC8A5008E2573 /* Info.plist */,
 				AA95D5841FBBC8A4008E2573 /* Supporting Files */,
 			);
@@ -230,12 +233,13 @@
 				AA3AA3C51FBEAD860021D122 /* bars2.png in Resources */,
 				AA3AA3C31FBEAD860021D122 /* applogo.png in Resources */,
 				AA3AA3C41FBEAD860021D122 /* bars.png in Resources */,
+				AAFCBEB31FD1549600E19497 /* LaunchCSNL.storyboard in Resources */,
 				AA3AA3C71FBEAD860021D122 /* map2.png in Resources */,
 				AA95D5971FBBC8A5008E2573 /* LaunchScreen.storyboard in Resources */,
 				AA3AA3C61FBEAD860021D122 /* map.png in Resources */,
 				AA95D5941FBBC8A5008E2573 /* Assets.xcassets in Resources */,
-				AA3AA3C81FBEAD860021D122 /* splash.png in Resources */,
 				AA3AA3C91FBEAD860021D122 /* upload.png in Resources */,
+				AAFCBEB11FD145D800E19497 /* splash.png in Resources */,
 				AA3AA3CA1FBEAD860021D122 /* upload2.png in Resources */,
 				AA95D5921FBBC8A5008E2573 /* Main.storyboard in Resources */,
 			);

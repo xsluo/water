@@ -42,12 +42,13 @@
     self.upButton.userInteractionEnabled = NO; //没有照片按钮不可用
     
     self.content.delegate = self;
-    
     self.view.userInteractionEnabled = YES;
 }
 
+
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-   self.content.text = @"";
+   //self.content.text = @"";
+    self.content.textColor = [UIColor blackColor];
 }
 //限制字符数
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
@@ -110,7 +111,7 @@
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
         
         UIImageView *imageV = [[UIImageView alloc] init];
-        imageV.frame = CGRectMake(20, 100, 100, 100);
+        imageV.frame = CGRectMake(16, 90, 100, 100);
         imageV.backgroundColor = [UIColor grayColor];
         imageV.image = info[UIImagePickerControllerEditedImage];
         [self.view addSubview:imageV];//把对象添加到控制器中
@@ -129,7 +130,7 @@
         CGRect rect = btAdd.frame;
         if(rect.origin.x < 100){
             rect.origin.x += 120;
-            rect.origin.y -= 20;
+            rect.origin.y -= 36;
         }
         btAdd.frame = rect;
         self.upButton.userInteractionEnabled = YES;

@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.homeWeb = [[WKWebView alloc] initWithFrame:CGRectMake(0,80, self.view.frame.size.width,self.view.frame.size.height-20)];
+    self.homeWeb = [[WKWebView alloc] initWithFrame:CGRectMake(0,80, self.view.frame.size.width,self.view.frame.size.height-130)];
     self.homeWeb.scrollView.backgroundColor = [UIColor whiteColor];
     self.homeWeb.UIDelegate = self;
     self.homeWeb.navigationDelegate = self;

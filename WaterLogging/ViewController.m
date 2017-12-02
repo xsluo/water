@@ -27,7 +27,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    _tableView = [[XDMultTableView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-120)];
+    _tableView = [[XDMultTableView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-130)];
     //_tableView.openSectionArray = [NSArray arrayWithObjects:@1,@2, nil];
     _tableView.openSectionArray = [NSArray arrayWithObjects:@0,nil];
     _tableView.delegate = self;
