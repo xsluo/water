@@ -33,7 +33,8 @@
     [super viewDidLoad];
     self.imagePickerController = [[UIImagePickerController alloc] init];
     self.imagePickerController.delegate = self;
-    self.imagePickerController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    //self.imagePickerController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    self.imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     self.imagePickerController.allowsEditing = YES;
 
     self.imageView = [[UIImageView alloc]init];
@@ -146,7 +147,17 @@
 
 #pragma mark - 文件上传
 - (IBAction)upLoad:(id)sender {
-   // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    if([self.contactName.text isEqual:@""]||[self.contactPhone isEqual:@""]){
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"姓名或电话号码不能为空";
+        hud.label.textColor = [UIColor redColor];
+        [hud hideAnimated:YES afterDelay:2];
+        return;
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSString *urlString = @"http://183.238.82.216:9090/waterlogging/android/upload/save";
     NSLog(@"upload--");
@@ -162,7 +173,7 @@
     [request setValue:@"ios+android" forHTTPHeaderField:@"User-Agent"];
     [request setValue:@"HS23dsdf435Sdfasd23A4dfDF43SA" forHTTPHeaderField:@"boundary"];
     
-    NSLog(@"request---------%@",request.allHTTPHeaderFields);
+    //NSLog(@"request---------%@",request.allHTTPHeaderFields);
     
     NSMutableData *bodydata = [self buildBody];
     
@@ -174,8 +185,8 @@
         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         
         NSLog(@"data++++++++++++++++++++++%@",dataString);
-        NSLog(@"response======================= %@",response);
-        NSLog(@"error----------------------%@",error);
+        //NSLog(@"response======================= %@",response);
+        //NSLog(@"error----------------------%@",error);
         //  开始解析
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
         xmlParser.delegate = self;
@@ -183,6 +194,7 @@
     }];
        //5 resume
     [task resume];
+      [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 -(NSMutableData *)buildBody{
@@ -277,9 +289,9 @@
     _currentElementName = nil;
     NSLog(@"end element :%@", elementName);
 }
-
 // 结束
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
+  //  [MBProgressHUD hideHUDForView:self.view animated:YES];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"结果" message:self.responsString preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:okAction];
