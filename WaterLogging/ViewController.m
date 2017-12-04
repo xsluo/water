@@ -207,6 +207,7 @@
 -(XDMultTableViewCell  *)mTableView:(XDMultTableView *)mTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString* name = @"cell";
     UITableViewCell* cell = [mTableView dequeueReusableCellWithIdentifier:name];
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc]init];
         //cell.textLabel.text = self.rowsInSectionArray[indexPath.section][indexPath.row];

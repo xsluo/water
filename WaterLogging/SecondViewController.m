@@ -426,6 +426,10 @@
     [alertController addAction:okAction];
     //[MBProgressHUD hideHUDForView:self.view animated:YES];
     [self presentViewController:alertController animated:YES completion:nil];
+    //UITextField *tfName = [self.scrollView viewWithTag:111];
+    self.contactName.text = @"";
+    self.contactPhone.text = @"";
+    self.content.text = @"";
 }
 
 #pragma mark - 检测上传进度
