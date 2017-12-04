@@ -26,7 +26,7 @@
     
     self.modelArray = [[NSMutableArray alloc]init];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.automaticallyAdjustsScrollViewInsets = YES;
     
     _tableView = [[XDMultTableView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-130)];
     //_tableView.openSectionArray = [NSArray arrayWithObjects:@1,@2, nil];
@@ -207,24 +207,31 @@
 
 -(XDMultTableViewCell  *)mTableView:(XDMultTableView *)mTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString* name = @"cell";
-    //static NSString* teleName = @"teleCell";
+    static NSString* teleName = @"teleCell";
     
     UITableViewCell* cell = [mTableView dequeueReusableCellWithIdentifier:name];
-    //teleCell* cellT = (teleCell *)[mTableView dequeueReusableCellWithIdentifier:teleName];
+    teleCell* cellT = (teleCell *)[mTableView dequeueReusableCellWithIdentifier:teleName];
     
-    /*
     if(cellT == nil){
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:teleName owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+        cellT = [nib objectAtIndex:0];
         if([_modelArray count]){
             ModelData *model = (ModelData *)[self.modelArray objectAtIndex:[indexPath section]];
+            NSString *content = [NSString stringWithFormat:@"电话:%@",model.telel];
+            UILabel *lbContent = [cellT viewWithTag:1];
+            lbContent.text = content;
+            //发短信
+            UIButton *sendMsg = [cellT viewWithTag:2];
+            [sendMsg addTarget:self action:@selector(SendMsg:) forControlEvents:UIControlEventTouchUpInside] ;
+            //打电话
+            UIButton *callPhone = [cellT viewWithTag:3];
+            [callPhone addTarget:self action:@selector(callPhone:) forControlEvents:UIControlEventTouchUpInside] ;
         }
     }
     
     if([indexPath row] == 8){
         return cellT;
     }
-     */
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc]init];
@@ -257,7 +264,7 @@
                     cell.textLabel.text = [NSString stringWithFormat:@"手机:%@",model.mobile];
                     break;
                 case 8:
-                    cell.textLabel.text = [NSString stringWithFormat:@"电话:%@",model.telel];
+                    //cell.textLabel.text = [NSString stringWithFormat:@"电话:%@",model.telel];
                     break;
                 default:
                     break;
@@ -266,6 +273,7 @@
     }
     return cell;
 }
+
 
 -(NSString *)mTableView:(XDMultTableView *)mTableView titleForHeaderInSection:(NSInteger)section{
     return @"我是头部";
@@ -293,6 +301,30 @@
 
 - (void)mTableView:(XDMultTableView *)mTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击cell");
+}
+
+#pragma mark --发送短信
+-(void)SendMsg:(id)sender{
+    UIButton *bt = (UIButton *)sender;
+    teleCell *tc = (teleCell *)bt.superview;
+    UILabel *lb = (UILabel *)[tc viewWithTag:1];
+    if(lb.text.length == 14){
+        NSString *phone = [lb.text substringFromIndex:3];
+        NSString *sms = [NSString stringWithFormat:@"sms://%@",phone];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:sms]];
+    }
+}
+
+#pragma mark --打电话
+-(void)callPhone:(id)sender{
+    UIButton *bt = (UIButton *)sender;
+    teleCell *tc = (teleCell *)bt.superview;
+    UILabel *lb = (UILabel *)[tc viewWithTag:1];
+    if(lb.text.length == 14){
+        NSString *phone = [lb.text substringFromIndex:3];
+        NSString *call = [NSString stringWithFormat:@"tel://%@",phone];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:call]];
+    }
 }
 
 @end
