@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA1BBEA91FD3E98F0025074A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1BBEA81FD3E98F0025074A /* SecondViewController.m */; };
 		AA396A921FBDCE3600CF1AE1 /* ModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396A911FBDCE3600CF1AE1 /* ModelData.m */; };
 		AA396AC11FBE02E200CF1AE1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396AC01FBE02E200CF1AE1 /* ViewController.m */; };
 		AA396AC41FBE02F400CF1AE1 /* XDMultTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396AC31FBE02F400CF1AE1 /* XDMultTableView.m */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		8E09F56B6636A4C49ABC0088 /* Pods-WaterLogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterLogging.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaterLogging/Pods-WaterLogging.release.xcconfig"; sourceTree = "<group>"; };
 		A82101A51494FA567432CBF8 /* libPods-WaterLogging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WaterLogging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA1BBEA71FD3E98F0025074A /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		AA1BBEA81FD3E98F0025074A /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		AA396A901FBDCE3600CF1AE1 /* ModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelData.h; path = WaterLogging/ModelData.h; sourceTree = "<group>"; };
 		AA396A911FBDCE3600CF1AE1 /* ModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelData.m; path = WaterLogging/ModelData.m; sourceTree = "<group>"; };
 		AA396ABF1FBE02E200CF1AE1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				AA95D58D1FBBC8A5008E2573 /* ThirdViewController.h */,
 				AA95D58E1FBBC8A5008E2573 /* ThirdViewController.m */,
 				AA95D5901FBBC8A5008E2573 /* Main.storyboard */,
+				AA1BBEA71FD3E98F0025074A /* SecondViewController.h */,
+				AA1BBEA81FD3E98F0025074A /* SecondViewController.m */,
 				AA95D5931FBBC8A5008E2573 /* Assets.xcassets */,
 				AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */,
 				AAFCBEB21FD1549600E19497 /* LaunchCSNL.storyboard */,
@@ -307,6 +312,7 @@
 				AA396AC11FBE02E200CF1AE1 /* ViewController.m in Sources */,
 				AA95D58F1FBBC8A5008E2573 /* ThirdViewController.m in Sources */,
 				AA396A921FBDCE3600CF1AE1 /* ModelData.m in Sources */,
+				AA1BBEA91FD3E98F0025074A /* SecondViewController.m in Sources */,
 				AA95D5891FBBC8A5008E2573 /* AppDelegate.m in Sources */,
 				AA95D58C1FBBC8A5008E2573 /* FirstViewController.m in Sources */,
 				AA95D5861FBBC8A4008E2573 /* main.m in Sources */,

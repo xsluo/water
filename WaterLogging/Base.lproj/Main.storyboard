@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市内涝在线监测系统" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dyh-rr-hcY">
-                                <rect key="frame" x="-4" y="20" width="328" height="60"/>
+                                <rect key="frame" x="-20" y="20" width="360" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="l63-Wx-m7h"/>
@@ -35,10 +35,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Dyh-rr-hcY" secondAttribute="trailing" constant="-20" id="3He-HI-cqA"/>
-                            <constraint firstItem="Dyh-rr-hcY" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="5EU-rV-LtZ"/>
-                            <constraint firstItem="Dyh-rr-hcY" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Zic-YJ-fQU"/>
-                            <constraint firstItem="Dyh-rr-hcY" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="f20-4o-Vwq"/>
+                            <constraint firstItem="Dyh-rr-hcY" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="-20" id="8u8-Zh-C0Z"/>
+                            <constraint firstItem="Dyh-rr-hcY" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="EaB-3o-O4L"/>
+                            <constraint firstAttribute="trailing" secondItem="Dyh-rr-hcY" secondAttribute="trailing" constant="-20" id="wOg-8L-QVD"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="内涝地图" image="map.png" selectedImage="map2.png" id="acW-dT-cKf"/>
@@ -46,6 +45,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1508" y="0.0"/>
+        </scene>
+        <!--上报情况-->
+        <scene sceneID="U3P-Md-HpD">
+            <objects>
+                <viewController id="nwE-St-7hi" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tW0-FS-dei"/>
+                        <viewControllerLayoutGuide type="bottom" id="7nm-GI-one"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sgj-Ex-bMf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市内涝在线监测系统" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfg-Ph-tkb">
+                                <rect key="frame" x="-20" y="20" width="360" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="vv0-Yq-X5a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yfg-Ph-tkb" secondAttribute="trailing" constant="-20" id="Cet-C4-pJG"/>
+                            <constraint firstItem="yfg-Ph-tkb" firstAttribute="top" secondItem="tW0-FS-dei" secondAttribute="bottom" id="LCT-Bb-EjE"/>
+                            <constraint firstItem="yfg-Ph-tkb" firstAttribute="leading" secondItem="Sgj-Ex-bMf" secondAttribute="leading" constant="-20" id="wCH-4b-hmh"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="上报情况" image="upload.png" selectedImage="upload2.png" id="M6U-Lb-X7R"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xEx-hg-y9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="390"/>
         </scene>
         <!--上报情况-->
         <scene sceneID="HHC-Cb-UPf">
@@ -109,6 +144,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfs-Mf-Xfx">
                                 <rect key="frame" x="105.5" y="216" width="198.5" height="30"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -180,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUD-yb-jK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="372"/>
+            <point key="canvasLocation" x="56" y="832"/>
         </scene>
         <!--站点列表-->
         <scene sceneID="wg7-f3-ORb">
@@ -247,8 +283,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="Jsv-LJ-pxt" kind="relationship" relationship="viewControllers" id="B1k-ia-Q1c"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="zWv-pC-371"/>
+                        <segue destination="nwE-St-7hi" kind="relationship" relationship="viewControllers" id="1J8-wn-l61"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
