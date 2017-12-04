@@ -10,6 +10,7 @@
 #import "XDMultTableView.h"
 #import "ModelData.h"
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "teleCell.h"
 
 @interface ViewController ()<XDMultTableViewDatasource,XDMultTableViewDelegate>
 
@@ -206,7 +207,24 @@
 
 -(XDMultTableViewCell  *)mTableView:(XDMultTableView *)mTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString* name = @"cell";
+    //static NSString* teleName = @"teleCell";
+    
     UITableViewCell* cell = [mTableView dequeueReusableCellWithIdentifier:name];
+    //teleCell* cellT = (teleCell *)[mTableView dequeueReusableCellWithIdentifier:teleName];
+    
+    /*
+    if(cellT == nil){
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:teleName owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        if([_modelArray count]){
+            ModelData *model = (ModelData *)[self.modelArray objectAtIndex:[indexPath section]];
+        }
+    }
+    
+    if([indexPath row] == 8){
+        return cellT;
+    }
+     */
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc]init];

@@ -25,6 +25,8 @@
 		AA95D5921FBBC8A5008E2573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5901FBBC8A5008E2573 /* Main.storyboard */; };
 		AA95D5941FBBC8A5008E2573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5931FBBC8A5008E2573 /* Assets.xcassets */; };
 		AA95D5971FBBC8A5008E2573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */; };
+		AA9EE4E81FD54109000796A9 /* teleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE4E61FD54109000796A9 /* teleCell.m */; };
+		AA9EE4E91FD54109000796A9 /* teleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9EE4E71FD54109000796A9 /* teleCell.xib */; };
 		AAFCBEB11FD145D800E19497 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFCBEB01FD145D800E19497 /* splash.png */; };
 		AAFCBEB31FD1549600E19497 /* LaunchCSNL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAFCBEB21FD1549600E19497 /* LaunchCSNL.storyboard */; };
 		DFFB05F092416578B10ABA11 /* libPods-WaterLogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A82101A51494FA567432CBF8 /* libPods-WaterLogging.a */; };
@@ -61,6 +63,9 @@
 		AA95D5931FBBC8A5008E2573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA95D5961FBBC8A5008E2573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA95D5981FBBC8A5008E2573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA9EE4E51FD54109000796A9 /* teleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teleCell.h; sourceTree = "<group>"; };
+		AA9EE4E61FD54109000796A9 /* teleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = teleCell.m; sourceTree = "<group>"; };
+		AA9EE4E71FD54109000796A9 /* teleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = teleCell.xib; sourceTree = "<group>"; };
 		AAFCBEB01FD145D800E19497 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		AAFCBEB21FD1549600E19497 /* LaunchCSNL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchCSNL.storyboard; sourceTree = "<group>"; };
 		B3CAFBB546A2723CC5B9BEE8 /* Pods-WaterLogging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterLogging.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaterLogging/Pods-WaterLogging.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +146,9 @@
 				AA95D5931FBBC8A5008E2573 /* Assets.xcassets */,
 				AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */,
 				AAFCBEB21FD1549600E19497 /* LaunchCSNL.storyboard */,
+				AA9EE4E51FD54109000796A9 /* teleCell.h */,
+				AA9EE4E61FD54109000796A9 /* teleCell.m */,
+				AA9EE4E71FD54109000796A9 /* teleCell.xib */,
 				AA95D5981FBBC8A5008E2573 /* Info.plist */,
 				AA95D5841FBBC8A4008E2573 /* Supporting Files */,
 			);
@@ -241,6 +249,7 @@
 				AAFCBEB31FD1549600E19497 /* LaunchCSNL.storyboard in Resources */,
 				AA3AA3C71FBEAD860021D122 /* map2.png in Resources */,
 				AA95D5971FBBC8A5008E2573 /* LaunchScreen.storyboard in Resources */,
+				AA9EE4E91FD54109000796A9 /* teleCell.xib in Resources */,
 				AA3AA3C61FBEAD860021D122 /* map.png in Resources */,
 				AA95D5941FBBC8A5008E2573 /* Assets.xcassets in Resources */,
 				AA3AA3C91FBEAD860021D122 /* upload.png in Resources */,
@@ -309,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA396AC41FBE02F400CF1AE1 /* XDMultTableView.m in Sources */,
+				AA9EE4E81FD54109000796A9 /* teleCell.m in Sources */,
 				AA396AC11FBE02E200CF1AE1 /* ViewController.m in Sources */,
 				AA95D58F1FBBC8A5008E2573 /* ThirdViewController.m in Sources */,
 				AA396A921FBDCE3600CF1AE1 /* ModelData.m in Sources */,

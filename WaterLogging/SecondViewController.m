@@ -244,6 +244,8 @@
         imageV.frame = CGRectMake(16, 10, 80, 80);
         imageV.backgroundColor = [UIColor grayColor];
         imageV.image = info[UIImagePickerControllerEditedImage];
+        [imageV setTag:107];
+        
         [self.scrollView addSubview:imageV];//把对象添加到控制器中
         self.imageView = imageV;
         
@@ -323,6 +325,22 @@
     }];
     //5 resume
     [task resume];
+    
+    self.contactName.text = @"";
+    self.contactPhone.text = @"";
+    [self.content setText:@""];
+    
+    UIImageView *imageV = [self.scrollView viewWithTag:107];
+    [imageV removeFromSuperview];
+    
+    UIButton *btAdd = (UIButton * )[self.scrollView viewWithTag:101];
+    CGRect rect = btAdd.frame;
+    if(rect.origin.x >100){
+        rect.origin.x -= 100;
+        rect.origin.y += 20;
+    }
+    btAdd.frame = rect;
+
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
@@ -426,10 +444,6 @@
     [alertController addAction:okAction];
     //[MBProgressHUD hideHUDForView:self.view animated:YES];
     [self presentViewController:alertController animated:YES completion:nil];
-    //UITextField *tfName = [self.scrollView viewWithTag:111];
-    self.contactName.text = @"";
-    self.contactPhone.text = @"";
-    self.content.text = @"";
 }
 
 #pragma mark - 检测上传进度
