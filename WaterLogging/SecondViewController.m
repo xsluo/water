@@ -104,6 +104,7 @@
     tfName.returnKeyType = UIReturnKeyDone;
     tfName.delegate = self;
     tfName.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:0.5];
+    [tfName setTag:201];
     self.contactName = tfName;
     [scrollView addSubview:tfName];
     
@@ -121,7 +122,7 @@
     tfPhone.returnKeyType = UIReturnKeyDone;
     tfPhone.delegate = self;
     tfPhone.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:0.5];
-
+    [tfPhone setTag:202];
     self.contactPhone = tfPhone;
     [scrollView addSubview:tfPhone];
 
@@ -135,22 +136,22 @@
     lbLeft.text = @"还可以输入120字";
     lbLeft.font = font;
     lbLeft.textColor = [UIColor colorWithRed:21.0/255 green:116.0/255 blue:204.0/255 alpha:0.5];
-    [lbLeft setTag:102];
+    [lbLeft setTag:203];
     [scrollView addSubview:lbLeft];
     
     UITextView *tvContent = [[UITextView alloc]initWithFrame:CGRectMake(16, 270, _fwidth-32, 100)];
     tvContent.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:0.5];
-    //tvContent.text = @"最多输入120字";
+
     tvContent.font = font;
     tvContent.returnKeyType = UIReturnKeyDone;
     tvContent.delegate = self;
+    [tvContent setTag:204];
     self.content = tvContent;
     [scrollView addSubview:tvContent];
     
     UIButton  *btSubmit =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [btSubmit setFrame:CGRectMake(_fwidth/2-60, 390, 120, 40)];
     [btSubmit setTitle:@"提交" forState:UIControlStateNormal];
-    [btSubmit setTag:103];
     btSubmit.titleLabel.font = font;
     btSubmit.backgroundColor = [UIColor colorWithRed:21.0/255 green:116.0/255 blue:204.0/255 alpha:0.5];
     btSubmit.clipsToBounds=YES;
@@ -168,7 +169,7 @@
 - (void)textViewDidChange:(UITextView *)textView{
     NSInteger count = textView.text.length;
     NSInteger left = 120-count;
-    UILabel *lbLeft = [self.scrollView viewWithTag:102];
+    UILabel *lbLeft = [self.scrollView viewWithTag:203];
     lbLeft.text = [NSString stringWithFormat:@"(还可以输入%ld字)",(long)left];
 }
 
@@ -326,9 +327,15 @@
     //5 resume
     [task resume];
     
-    self.contactName.text = @"";
-    self.contactPhone.text = @"";
-    [self.content setText:@""];
+    UITextField *name = [self.scrollView viewWithTag:201];
+    UITextField *phone = [self.scrollView viewWithTag:202];
+    UILabel *remain = [self.scrollView viewWithTag:203];
+    UITextView *content = [self.scrollView viewWithTag:204];
+    name.text = @"";
+    phone.text = @"";
+    remain.text = @"还可输入120字";
+    content.text = @"";
+    
     
     UIImageView *imageV = [self.scrollView viewWithTag:107];
     [imageV removeFromSuperview];
@@ -428,6 +435,9 @@
     NSLog(@"value : %@", string);
     if ([_currentElementName isEqualToString:@"msg"]) {
         self.responsString = string;
+        if([string isEqualToString:@"保存成功"]){
+            self.responsString = @"提交成功";
+        }
     }
 }
 
