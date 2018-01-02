@@ -18,6 +18,10 @@
 		AA3AA3C71FBEAD860021D122 /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3AA3BF1FBEAD850021D122 /* map2.png */; };
 		AA3AA3C91FBEAD860021D122 /* upload.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3AA3C11FBEAD850021D122 /* upload.png */; };
 		AA3AA3CA1FBEAD860021D122 /* upload2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3AA3C21FBEAD860021D122 /* upload2.png */; };
+		AA6D873F1FFB7928003CBDD3 /* JJStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D87391FFB7928003CBDD3 /* JJStockViewCell.m */; };
+		AA6D87401FFB7928003CBDD3 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D873C1FFB7928003CBDD3 /* JJStockView.m */; };
+		AA6D87411FFB7928003CBDD3 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D873E1FFB7928003CBDD3 /* JJStockScrollView.m */; };
+		AA6D87441FFB7958003CBDD3 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D87421FFB7958003CBDD3 /* DemoViewController.m */; };
 		AA95D5861FBBC8A4008E2573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D5851FBBC8A4008E2573 /* main.m */; };
 		AA95D5891FBBC8A5008E2573 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D5881FBBC8A5008E2573 /* AppDelegate.m */; };
 		AA95D58C1FBBC8A5008E2573 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D58B1FBBC8A5008E2573 /* FirstViewController.m */; };
@@ -50,6 +54,14 @@
 		AA3AA3C11FBEAD850021D122 /* upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload.png; sourceTree = "<group>"; };
 		AA3AA3C21FBEAD860021D122 /* upload2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload2.png; sourceTree = "<group>"; };
 		AA4BE4A21FBD625200A81207 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		AA6D87391FFB7928003CBDD3 /* JJStockViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJStockViewCell.m; sourceTree = "<group>"; };
+		AA6D873A1FFB7928003CBDD3 /* JJStockViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockViewCell.h; sourceTree = "<group>"; };
+		AA6D873B1FFB7928003CBDD3 /* JJStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockView.h; sourceTree = "<group>"; };
+		AA6D873C1FFB7928003CBDD3 /* JJStockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJStockView.m; sourceTree = "<group>"; };
+		AA6D873D1FFB7928003CBDD3 /* JJStockScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
+		AA6D873E1FFB7928003CBDD3 /* JJStockScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
+		AA6D87421FFB7958003CBDD3 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		AA6D87431FFB7958003CBDD3 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		AA95D5811FBBC8A4008E2573 /* WaterLogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterLogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA95D5851FBBC8A4008E2573 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA95D5871FBBC8A5008E2573 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,9 +116,25 @@
 			path = icon;
 			sourceTree = "<group>";
 		};
+		AA6D87381FFB78F3003CBDD3 /* Stock */ = {
+			isa = PBXGroup;
+			children = (
+				AA6D87421FFB7958003CBDD3 /* DemoViewController.m */,
+				AA6D87431FFB7958003CBDD3 /* DemoViewController.h */,
+				AA6D87391FFB7928003CBDD3 /* JJStockViewCell.m */,
+				AA6D873A1FFB7928003CBDD3 /* JJStockViewCell.h */,
+				AA6D873B1FFB7928003CBDD3 /* JJStockView.h */,
+				AA6D873C1FFB7928003CBDD3 /* JJStockView.m */,
+				AA6D873D1FFB7928003CBDD3 /* JJStockScrollView.h */,
+				AA6D873E1FFB7928003CBDD3 /* JJStockScrollView.m */,
+			);
+			name = Stock;
+			sourceTree = "<group>";
+		};
 		AA95D5781FBBC8A3008E2573 = {
 			isa = PBXGroup;
 			children = (
+				AA6D87381FFB78F3003CBDD3 /* Stock */,
 				AA3AA3BA1FBEAD850021D122 /* icon */,
 				AA95D5A11FBBF3AF008E2573 /* Model */,
 				AA95D5831FBBC8A4008E2573 /* WaterLogging */,
@@ -315,7 +343,11 @@
 				AA396AC41FBE02F400CF1AE1 /* XDMultTableView.m in Sources */,
 				AA9EE4E81FD54109000796A9 /* teleCell.m in Sources */,
 				AA396AC11FBE02E200CF1AE1 /* ViewController.m in Sources */,
+				AA6D87441FFB7958003CBDD3 /* DemoViewController.m in Sources */,
+				AA6D873F1FFB7928003CBDD3 /* JJStockViewCell.m in Sources */,
 				AA396A921FBDCE3600CF1AE1 /* ModelData.m in Sources */,
+				AA6D87401FFB7928003CBDD3 /* JJStockView.m in Sources */,
+				AA6D87411FFB7928003CBDD3 /* JJStockScrollView.m in Sources */,
 				AA1BBEA91FD3E98F0025074A /* SecondViewController.m in Sources */,
 				AA95D5891FBBC8A5008E2573 /* AppDelegate.m in Sources */,
 				AA95D58C1FBBC8A5008E2573 /* FirstViewController.m in Sources */,
