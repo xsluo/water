@@ -280,10 +280,19 @@
 #pragma mark - 文件上传
 - (void)upLoad:(id)sender {
     
-    if([self.contactName.text isEqual:@""] ||[self.contactPhone.text isEqual:@""]){
+    if([self.contactName.text isEqual:@""] ||[self.contactPhone.text isEqual:@""]||[self.content.text isEqualToString:@""]){
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
-        hud.label.text = @"姓名或电话号码不能为空";
+        hud.label.text = @"姓名、联系电话和输入内容不能为空";
+        hud.label.textColor = [UIColor redColor];
+        [hud hideAnimated:YES afterDelay:2];
+        return;
+    }
+    
+    if(self.imageView.image == nil){
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"照片不能为空";
         hud.label.textColor = [UIColor redColor];
         [hud hideAnimated:YES afterDelay:2];
         return;

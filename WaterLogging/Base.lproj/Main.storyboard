@@ -40,7 +40,7 @@
                             <constraint firstAttribute="trailing" secondItem="Dyh-rr-hcY" secondAttribute="trailing" constant="-20" id="wOg-8L-QVD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="内涝地图" image="map.png" selectedImage="map2.png" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="内涝地图" image="内涝地图1" selectedImage="内涝地图2" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,147 +76,11 @@
                             <constraint firstItem="yfg-Ph-tkb" firstAttribute="leading" secondItem="Sgj-Ex-bMf" secondAttribute="leading" constant="-20" id="wCH-4b-hmh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="上报情况" image="upload.png" selectedImage="upload2.png" id="M6U-Lb-X7R"/>
+                    <tabBarItem key="tabBarItem" title="上报情况" image="上报情况1" selectedImage="上报情况2" id="M6U-Lb-X7R"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEx-hg-y9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="786" y="390"/>
-        </scene>
-        <!--上报情况-->
-        <scene sceneID="HHC-Cb-UPf">
-            <objects>
-                <viewController id="Jsv-LJ-pxt" customClass="ThirdViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="H2T-bx-2q5"/>
-                        <viewControllerLayoutGuide type="bottom" id="UcK-P7-rbg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rQZ-4g-rc0" customClass="UIButton">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传图片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPY-7w-6YH">
-                                <rect key="frame" x="16" y="108" width="82" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOx-ff-dq0">
-                                <rect key="frame" x="16" y="219.5" width="61.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" text="请输入内容，字数少于120" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fun-nK-KZi">
-                                <rect key="frame" x="16" y="355.5" width="288" height="100"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" searchField="YES" adjustable="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="AvR-vh-PT1"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="dZi-5b-lwt"/>
-                                </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市内涝在线监测系统" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-vy-n3n">
-                                <rect key="frame" x="-4" y="20" width="328" height="60"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="fGn-WC-MNW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系电话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gb4-tI-KYN">
-                                <rect key="frame" x="16" y="271.5" width="82" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGZ-i4-9zO">
-                                <rect key="frame" x="16" y="323.5" width="82" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfs-Mf-Xfx">
-                                <rect key="frame" x="105.5" y="216" width="198.5" height="30"/>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入联系电话" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Qf-sG-ghl">
-                                <rect key="frame" x="105.5" y="269" width="198.5" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLN-od-BY1">
-                                <rect key="frame" x="135" y="475.5" width="50" height="36"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="tpm-cL-qUK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="提交">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="upLoad:" destination="Jsv-LJ-pxt" eventType="touchUpInside" id="8WZ-Em-WCh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-B8-rTw">
-                                <rect key="frame" x="36" y="161" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="takePhoto:" destination="Jsv-LJ-pxt" eventType="touchUpInside" id="m2H-ph-9pJ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="pfs-Mf-Xfx" secondAttribute="trailing" id="1hF-Q5-E31"/>
-                            <constraint firstItem="9Qf-sG-ghl" firstAttribute="leading" secondItem="pfs-Mf-Xfx" secondAttribute="leading" id="5NO-UP-l65"/>
-                            <constraint firstItem="Gb4-tI-KYN" firstAttribute="top" secondItem="aOx-ff-dq0" secondAttribute="bottom" constant="28" id="Ac8-JM-ftb"/>
-                            <constraint firstItem="9Qf-sG-ghl" firstAttribute="centerY" secondItem="Gb4-tI-KYN" secondAttribute="centerY" id="E4E-Sz-C3h"/>
-                            <constraint firstItem="3ze-vy-n3n" firstAttribute="leading" secondItem="rQZ-4g-rc0" secondAttribute="leadingMargin" constant="-20" id="H22-uj-zPv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fun-nK-KZi" secondAttribute="trailing" id="Iv7-D9-YHk"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="fun-nK-KZi" secondAttribute="leading" id="PrJ-iK-aAr"/>
-                            <constraint firstItem="TLN-od-BY1" firstAttribute="top" secondItem="fun-nK-KZi" secondAttribute="bottom" constant="20" id="Pub-Zv-76I"/>
-                            <constraint firstItem="Gb4-tI-KYN" firstAttribute="leading" secondItem="rQZ-4g-rc0" secondAttribute="leadingMargin" id="TG6-oO-X1k"/>
-                            <constraint firstItem="pfs-Mf-Xfx" firstAttribute="centerY" secondItem="aOx-ff-dq0" secondAttribute="centerY" id="VI3-n6-sV0"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="aOx-ff-dq0" secondAttribute="leading" id="XEf-3q-zh9"/>
-                            <constraint firstItem="3ze-vy-n3n" firstAttribute="top" secondItem="H2T-bx-2q5" secondAttribute="bottom" id="elt-AH-3Ly"/>
-                            <constraint firstItem="fun-nK-KZi" firstAttribute="top" secondItem="QGZ-i4-9zO" secondAttribute="bottom" constant="8" id="fTZ-EO-psy"/>
-                            <constraint firstItem="QGZ-i4-9zO" firstAttribute="top" secondItem="Gb4-tI-KYN" secondAttribute="bottom" constant="28" id="hYe-yL-ucx"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="NPY-7w-6YH" secondAttribute="leading" id="hab-rv-WbE"/>
-                            <constraint firstItem="pfs-Mf-Xfx" firstAttribute="top" secondItem="3ze-vy-n3n" secondAttribute="bottom" constant="136" id="ibG-k7-aS1"/>
-                            <constraint firstItem="QGZ-i4-9zO" firstAttribute="leading" secondItem="rQZ-4g-rc0" secondAttribute="leadingMargin" id="mOE-za-gZi"/>
-                            <constraint firstItem="TLN-od-BY1" firstAttribute="centerX" secondItem="rQZ-4g-rc0" secondAttribute="centerX" id="rDf-qm-PKc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3ze-vy-n3n" secondAttribute="trailing" constant="-20" id="s6i-4R-EGf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9Qf-sG-ghl" secondAttribute="trailing" id="tny-DP-UO8"/>
-                            <constraint firstItem="pfs-Mf-Xfx" firstAttribute="leading" secondItem="aOx-ff-dq0" secondAttribute="trailing" constant="28" id="uE6-h3-du2"/>
-                            <constraint firstItem="NPY-7w-6YH" firstAttribute="top" secondItem="3ze-vy-n3n" secondAttribute="bottom" constant="28" id="zRN-DN-h3t"/>
-                        </constraints>
-                        <connections>
-                            <action selector="tapupView:" destination="Jsv-LJ-pxt" eventType="touchUpInside" id="kkE-nN-7fm"/>
-                        </connections>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="上报情况" image="bars.png" selectedImage="bars2.png" id="AvJ-ZV-qRc"/>
-                    <connections>
-                        <outlet property="contactName" destination="pfs-Mf-Xfx" id="nc5-B1-Gn0"/>
-                        <outlet property="contactPhone" destination="9Qf-sG-ghl" id="mAf-zW-aQQ"/>
-                        <outlet property="content" destination="fun-nK-KZi" id="xl5-Ex-FGu"/>
-                        <outlet property="upButton" destination="TLN-od-BY1" id="CD0-fI-zlK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PUD-yb-jK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="56" y="832"/>
         </scene>
         <!--站点列表-->
         <scene sceneID="wg7-f3-ORb">
@@ -257,7 +121,7 @@
                             <constraint firstItem="8cj-po-VVk" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="uUH-KM-8uN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="站点列表" image="upload.png" selectedImage="upload2.png" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="站点列表" image="站点列表1" selectedImage="站点列表2" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,11 +149,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bars.png" width="30" height="30"/>
-        <image name="bars2.png" width="30" height="30"/>
-        <image name="map.png" width="30" height="28"/>
-        <image name="map2.png" width="30" height="27"/>
-        <image name="upload.png" width="30" height="30"/>
-        <image name="upload2.png" width="30" height="30"/>
+        <image name="上报情况1" width="30" height="30"/>
+        <image name="上报情况2" width="30" height="30"/>
+        <image name="内涝地图1" width="30" height="30"/>
+        <image name="内涝地图2" width="30" height="30"/>
+        <image name="站点列表1" width="30" height="30"/>
+        <image name="站点列表2" width="30" height="30"/>
     </resources>
 </document>

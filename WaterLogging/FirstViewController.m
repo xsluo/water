@@ -39,11 +39,11 @@
 #pragma mark - WKNavigationDelegate
 // 页面开始加载时调用
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+   // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 // 当内容开始返回时调用
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
-    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 // 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
@@ -52,7 +52,7 @@
 // 页面加载失败时调用
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.mode = MBProgressHUDModeText;
     hud.label.text = @"网络连接失败";
     [hud showAnimated:YES];
@@ -70,6 +70,10 @@
         });
     }
     decisionHandler(WKNavigationActionPolicyAllow);
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
+
+
+
 
 @end

@@ -148,10 +148,10 @@
 #pragma mark - 文件上传
 - (IBAction)upLoad:(id)sender {
     
-    if([self.contactName.text isEqual:@""]||[self.contactPhone isEqual:@""]){
+    if([self.contactName.text isEqual:@""]||[self.contactPhone.text isEqual:@""]||[self.content.text isEqualToString:@""]){
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
-        hud.label.text = @"姓名或电话号码不能为空";
+        hud.label.text = @"姓名、电话号码和输入内容不能为空";
         hud.label.textColor = [UIColor redColor];
         [hud hideAnimated:YES afterDelay:2];
         return;
