@@ -29,9 +29,8 @@
     [self.view addSubview:self.stockView];
 }
 
-
 - (void) loadData{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.stockView animated:YES];
     
     /*接口：http://183.238.82.216:9090/waterlogging/comm/RealTimeData_View/list
      方法：POST
@@ -72,25 +71,6 @@
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSMutableArray *arrs = [dic objectForKey:@"content"];
             
-            //NSLog(@"%@",arrs);
-            /*
-             @property (nonatomic,copy)NSString *number;
-             @property (nonatomic,copy)NSString *time;
-             @property (nonatomic,copy)NSString *typevt;
-             @property (nonatomic,copy)NSString *remark;
-             @property (nonatomic,copy)NSString *maintence;
-             @property (nonatomic,copy)NSString *telel;
-             @property (nonatomic,copy)NSString *mobile;
-             @property (nonatomic,copy)NSString *valuevt;
-             @property (nonatomic,copy)NSString *typez;
-             @property (nonatomic,copy)NSString *valuez;
-             @property (nonatomic,copy)NSString *reporttime;
-             @property (nonatomic,copy)NSString *name;
-             @property (nonatomic,copy)NSString *lat;
-             @property (nonatomic,copy)NSString *lnt;
-             @property (nonatomic,copy)NSString *location;
-             */
-            
             for(NSDictionary *obj in arrs){
                 ModelData *model = [[ModelData alloc]init];
                 model.number = obj[@"WST_NO"];
@@ -110,10 +90,31 @@
                 model.location =obj[@"LOCATION"];
                 [self.modelArray addObject:model];
             }
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:self.stockView animated:YES];
+            [self  sortData];
             [self.stockView reloadStockView];
         }
     }];
+}
+
+#pragma mark -Sort Data
+
+- (void) sortData{
+    if([self.modelArray count]<2){
+        return;
+    }
+    ModelData *modelTemp;
+    for(int i=0;i<self.modelArray.count-1;i++){
+        for(int j=0;j<self.modelArray.count-i-1;j++){
+            ModelData *x = self.modelArray[j];
+            ModelData *y = _modelArray[j+1];
+            if([x.valuez floatValue]< [y.valuez floatValue]){
+                modelTemp = _modelArray[j];
+                _modelArray[j] = _modelArray[j+1];
+                _modelArray[j+1] = modelTemp;
+            }
+        }
+    }
 }
 
 #pragma mark - Stock DataSource
@@ -396,8 +397,4 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:call]];
     }
 }
-
-
-
-
 @end
