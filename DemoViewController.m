@@ -58,8 +58,6 @@
                            @"sortValue" : @"desc"
                            };
     
-    //NSData --> NSDictionary
-    // NSDictionary --> NSData
     NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
     request.HTTPBody = data;
     
@@ -91,30 +89,9 @@
                 [self.modelArray addObject:model];
             }
             [MBProgressHUD hideHUDForView:self.stockView animated:YES];
-            [self  sortData];
             [self.stockView reloadStockView];
         }
     }];
-}
-
-#pragma mark -Sort Data
-
-- (void) sortData{
-    if([self.modelArray count]<2){
-        return;
-    }
-    ModelData *modelTemp;
-    for(int i=0;i<self.modelArray.count-1;i++){
-        for(int j=0;j<self.modelArray.count-i-1;j++){
-            ModelData *x = self.modelArray[j];
-            ModelData *y = _modelArray[j+1];
-            if([x.valuez floatValue]< [y.valuez floatValue]){
-                modelTemp = _modelArray[j];
-                _modelArray[j] = _modelArray[j+1];
-                _modelArray[j+1] = modelTemp;
-            }
-        }
-    }
 }
 
 #pragma mark - Stock DataSource
