@@ -10,6 +10,7 @@
 #import "JJStockView.h"
 #import "ModelData.h"
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "MJRefresh.h"
 
 @interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
 
@@ -27,10 +28,30 @@
     self.stockView.frame = CGRectMake(0, 80, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-130);
     [self  loadData];
     [self.view addSubview:self.stockView];
+    /*
+    self.stockView.jjStockTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    
+    // Enter the refresh status immediately
+    [self.stockView.jjStockTableView.mj_header beginRefreshing];
+     */
+    __weak __typeof(self) weakSelf = self;
+    
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    self.stockView.jjStockTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf loadData];
+    }];
+    
+    // 马上进入刷新状态
+    [self.stockView.jjStockTableView.mj_header beginRefreshing];
+
+    
+    
+    
+    
 }
 
 - (void) loadData{
-    [MBProgressHUD showHUDAddedTo:self.stockView animated:YES];
+   // [MBProgressHUD showHUDAddedTo:self.stockView animated:YES];
     
     /*接口：http://183.238.82.216:9090/waterlogging/comm/RealTimeData_View/list
      方法：POST
@@ -90,6 +111,7 @@
             }
             [MBProgressHUD hideHUDForView:self.stockView animated:YES];
             [self.stockView reloadStockView];
+            [self.stockView.jjStockTableView.mj_header endRefreshing];
         }
     }];
 }
