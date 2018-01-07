@@ -15,8 +15,10 @@
 #import <Foundation/Foundation.h>
 
 @interface SecondViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,NSXMLParserDelegate,UITextViewDelegate,UITextFieldDelegate>
-@property int fwidth;  //屏幕宽度
-@property int fheight;  //屏幕高度
+@property NSInteger fwidth;  //屏幕宽度
+@property NSInteger fheight;  //屏幕高度
+@property NSInteger offsetx;  //水平偏移
+@property NSInteger offsety;  //垂直偏移
 
 @property (weak, nonatomic)  UITextField *contactName;
 @property (weak, nonatomic)  UITextField *contactPhone;
@@ -24,11 +26,12 @@
 @property (weak, nonatomic)  UIButton *upButton;
 @property (nonatomic,strong) NSString *photoUrl;
 @property UIImagePickerController *imagePickerController;
-@property (strong,nonatomic)  UIImageView *imageView;
-@property (strong,nonatomic)  NSData *fileData;
+@property (strong,nonatomic) UIImageView *imageView;
+@property (strong,nonatomic) NSData *fileData;
 @property (nonatomic,strong) NSString *responsString;
 @property (nonatomic,strong) NSString *currentElementName;
 @property (nonatomic,retain) UIView *scrollView;
+
 @end
 
 @implementation SecondViewController
@@ -55,6 +58,8 @@
     
     self.fwidth = self.view.frame.size.width;
     self.fheight = self.view.frame.size.height;
+    self.offsetx = 0;
+    self.offsety = 0;
     
     // Do any additional setup after loading the view.
     #pragma mark - 添加滚动视图
@@ -66,7 +71,7 @@
     [self.view addSubview:scrollView];
     
     #pragma mark - 定义界面
-    UIFont *font = [UIFont systemFontOfSize:20];
+    UIFont *font = [UIFont systemFontOfSize:20]; //字体大小
 
     //1.添加图片
     UILabel *lbAddPic = [[UILabel alloc]initWithFrame:CGRectMake(16, 10, 120, 40)];
@@ -75,7 +80,6 @@
     [scrollView addSubview:lbAddPic];
 
     // 2.创建图片按钮
-    //UIImage *imageAdd = [UIImage imageNamed:@"upload2.png"];
     UIButton *btAddpic = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [btAddpic setFrame:CGRectMake(20, 40, 60, 60)];
     [btAddpic setTag:101];
@@ -92,12 +96,12 @@
     scrollView.showsVerticalScrollIndicator = NO;
     
 
-    UILabel *lbName = [[UILabel alloc]initWithFrame:CGRectMake(16, 100, 120, 40)];
+    UILabel *lbName = [[UILabel alloc]initWithFrame:CGRectMake(16, 100+_offsety, 120, 40)];
     lbName.text = @"联系人";
     lbName.font = font;
     [scrollView addSubview:lbName];
     
-    UITextField *tfName = [[UITextField alloc]initWithFrame:CGRectMake(110, 100, _fwidth-126, 40)];
+    UITextField *tfName = [[UITextField alloc]initWithFrame:CGRectMake(110, 100+_offsety, _fwidth-126, 40)];
     tfName.text = @"";
     tfName.placeholder = @"请输入联系人";
     tfName.font = font;
@@ -109,12 +113,12 @@
     [scrollView addSubview:tfName];
     
 
-    UILabel *lbPhone = [[UILabel alloc]initWithFrame:CGRectMake(16, 160, 120, 40)];
+    UILabel *lbPhone = [[UILabel alloc]initWithFrame:CGRectMake(16, 160+_offsety, 120, 40)];
     lbPhone.text = @"联系电话";
     lbPhone.font = font;
     [scrollView addSubview:lbPhone];
     
-    UITextField *tfPhone = [[UITextField alloc]initWithFrame:CGRectMake(110, 160, _fwidth-126, 40)];
+    UITextField *tfPhone = [[UITextField alloc]initWithFrame:CGRectMake(110, 160+_offsety, _fwidth-126, 40)];
     tfPhone.text = @"";
     tfPhone.placeholder = @"请输入联系电话";
     tfPhone.font = font;
@@ -126,20 +130,19 @@
     self.contactPhone = tfPhone;
     [scrollView addSubview:tfPhone];
 
-    
-    UILabel *lbContent = [[UILabel alloc]initWithFrame:CGRectMake(16, 220, 120, 40)];
+    UILabel *lbContent = [[UILabel alloc]initWithFrame:CGRectMake(16, 220+_offsety, 120, 40)];
     lbContent.text = @"输入内容";
     lbContent.font = font;
     [scrollView addSubview:lbContent];
     
-    UILabel *lbLeft = [[UILabel alloc]initWithFrame:CGRectMake(110, 220, _fwidth-126, 40)];
+    UILabel *lbLeft = [[UILabel alloc]initWithFrame:CGRectMake(110, 220+_offsety, _fwidth-126, 40)];
     lbLeft.text = @"还可以输入120字";
     lbLeft.font = font;
     lbLeft.textColor = [UIColor colorWithRed:21.0/255 green:116.0/255 blue:204.0/255 alpha:0.5];
     [lbLeft setTag:203];
     [scrollView addSubview:lbLeft];
     
-    UITextView *tvContent = [[UITextView alloc]initWithFrame:CGRectMake(16, 270, _fwidth-32, 100)];
+    UITextView *tvContent = [[UITextView alloc]initWithFrame:CGRectMake(16, 270+_offsety, _fwidth-32, 120)];
     tvContent.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:0.5];
 
     tvContent.font = font;
@@ -150,7 +153,7 @@
     [scrollView addSubview:tvContent];
     
     UIButton  *btSubmit =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btSubmit setFrame:CGRectMake(_fwidth/2-60, 390, 120, 40)];
+    [btSubmit setFrame:CGRectMake(_fwidth/2-60, 410+_offsety, 120, 40)];
     [btSubmit setTitle:@"提交" forState:UIControlStateNormal];
     btSubmit.titleLabel.font = font;
     btSubmit.backgroundColor = [UIColor colorWithRed:21.0/255 green:116.0/255 blue:204.0/255 alpha:0.5];
@@ -208,7 +211,7 @@
 }
 
 #pragma mark - 拍照
-- (void) takePhoto:(id)sender {
+- (void)takePhoto:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"选择图片"  message:nil preferredStyle: UIAlertControllerStyleActionSheet];
     UIAlertAction *Cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *Shoot = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
@@ -279,11 +282,10 @@
 
 #pragma mark - 文件上传
 - (void)upLoad:(id)sender {
-    
     if([self.contactName.text isEqual:@""] ||[self.contactPhone.text isEqual:@""]||[self.content.text isEqualToString:@""]){
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
-        hud.label.text = @"姓名、联系电话和输入内容不能为空";
+        hud.label.text = @"联系人、联系电话和输入内容不能为空";
         hud.label.textColor = [UIColor redColor];
         [hud hideAnimated:YES afterDelay:2];
         return;
@@ -319,15 +321,13 @@
     NSMutableData *bodydata = [self buildBody];
     
     //3 session
-    NSURLSession *session = [NSURLSession sharedSession];
+    //NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
     NSURLSessionUploadTask *task = [session uploadTaskWithRequest:request fromData:bodydata completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
         NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        
-        NSLog(@"data++++++++++++++++++++++%@",dataString);
-        //NSLog(@"response======================= %@",response);
-        //NSLog(@"error----------------------%@",error);
+        NSLog(@"data value %@",dataString);
         //  开始解析
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
         xmlParser.delegate = self;
@@ -414,7 +414,7 @@
     
     //(2)pic
     NSData *picdata  = self.fileData;
-    NSLog(@"length----------------%lu",(unsigned long)picdata.length);
+    NSLog(@"length of picdata %lu",(unsigned long)picdata.length);
     [bodyData appendData:picdata];
     
     //(3)--Str--
@@ -457,26 +457,33 @@
 }
 // 结束
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    //  [MBProgressHUD hideHUDForView:self.view animated:YES];
+    //[MBProgressHUD hideHUDForView:self.view animated:YES];
+    /*
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"结果" message:self.responsString preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:okAction];
     //[MBProgressHUD hideHUDForView:self.view animated:YES];
     [self presentViewController:alertController animated:YES completion:nil];
+    */
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    //hud.label.font = [UIFont fontWithName:@"font" size:40];
+    hud.label.text = @"信息上传成功！";
+    hud.label.textColor = [UIColor redColor];
+    [hud hideAnimated:YES afterDelay:3];
 }
 
 #pragma mark - 检测上传进度
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
    didSendBodyData:(int64_t)bytesSent
     totalBytesSent:(int64_t)totalBytesSent
-totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
-{
+totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend{
     float progress = (float)totalBytesSent / totalBytesExpectedToSend;
-    NSLog(@"%f %@", progress, [NSThread currentThread]);
+    NSLog(@"%f %@---@@@@@----", progress, [NSThread currentThread]);
 }
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
-{
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error{
     NSLog(@"完成");
 }
 
