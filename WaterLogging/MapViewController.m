@@ -6,16 +6,16 @@
 //  Copyright © 2017年 xsluo. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "MapViewController.h"
 #import <WebKit/WebKit.h>
 #import "MBProgressHUD/MBProgressHUD.h"
 
-@interface FirstViewController ()<WKUIDelegate,WKNavigationDelegate>
+@interface MapViewController ()<WKUIDelegate,WKNavigationDelegate>
 @property(nonatomic,retain) WKWebView *homeWeb;
 
 @end
 
-@implementation FirstViewController
+@implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

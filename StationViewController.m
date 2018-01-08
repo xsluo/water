@@ -6,20 +6,20 @@
 //  Copyright © 2017年 Jezz. All rights reserved.
 //
 
-#import "DemoViewController.h"
+#import "StationViewController.h"
 #import "JJStockView.h"
 #import "ModelData.h"
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "MJRefresh.h"
 
-@interface DemoViewController ()<StockViewDataSource,StockViewDelegate>
+@interface StationViewController ()<StockViewDataSource,StockViewDelegate>
 
 @property(nonatomic,readwrite,strong)JJStockView* stockView;
 @property(nonatomic,strong)NSMutableArray* modelArray;
 
 @end
 
-@implementation DemoViewController
+@implementation StationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,14 +40,9 @@
     self.stockView.jjStockTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf loadData];
     }];
-    
+
     // 马上进入刷新状态
     [self.stockView.jjStockTableView.mj_header beginRefreshing];
-
-    
-    
-    
-    
 }
 
 - (void) loadData{

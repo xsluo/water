@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA1BBEA91FD3E98F0025074A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1BBEA81FD3E98F0025074A /* SecondViewController.m */; };
+		AA1BBEA91FD3E98F0025074A /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1BBEA81FD3E98F0025074A /* UploadViewController.m */; };
 		AA396A921FBDCE3600CF1AE1 /* ModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396A911FBDCE3600CF1AE1 /* ModelData.m */; };
 		AA396AC11FBE02E200CF1AE1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396AC01FBE02E200CF1AE1 /* ViewController.m */; };
 		AA396AC41FBE02F400CF1AE1 /* XDMultTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396AC31FBE02F400CF1AE1 /* XDMultTableView.m */; };
@@ -21,7 +21,7 @@
 		AA6D873F1FFB7928003CBDD3 /* JJStockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D87391FFB7928003CBDD3 /* JJStockViewCell.m */; };
 		AA6D87401FFB7928003CBDD3 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D873C1FFB7928003CBDD3 /* JJStockView.m */; };
 		AA6D87411FFB7928003CBDD3 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D873E1FFB7928003CBDD3 /* JJStockScrollView.m */; };
-		AA6D87441FFB7958003CBDD3 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D87421FFB7958003CBDD3 /* DemoViewController.m */; };
+		AA6D87441FFB7958003CBDD3 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D87421FFB7958003CBDD3 /* StationViewController.m */; };
 		AA73C3F81FFDDF5B00134D99 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AA73C3CC1FFDDF5B00134D99 /* MJRefreshAutoFooter.m */; };
 		AA73C3F91FFDDF5B00134D99 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AA73C3CE1FFDDF5B00134D99 /* MJRefreshBackFooter.m */; };
 		AA73C3FA1FFDDF5B00134D99 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AA73C3D01FFDDF5B00134D99 /* MJRefreshComponent.m */; };
@@ -44,7 +44,7 @@
 		AA73C40B1FFDDF5B00134D99 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AA73C3F71FFDDF5B00134D99 /* UIView+MJExtension.m */; };
 		AA95D5861FBBC8A4008E2573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D5851FBBC8A4008E2573 /* main.m */; };
 		AA95D5891FBBC8A5008E2573 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D5881FBBC8A5008E2573 /* AppDelegate.m */; };
-		AA95D58C1FBBC8A5008E2573 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D58B1FBBC8A5008E2573 /* FirstViewController.m */; };
+		AA95D58C1FBBC8A5008E2573 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA95D58B1FBBC8A5008E2573 /* MapViewController.m */; };
 		AA95D5921FBBC8A5008E2573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5901FBBC8A5008E2573 /* Main.storyboard */; };
 		AA95D5941FBBC8A5008E2573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5931FBBC8A5008E2573 /* Assets.xcassets */; };
 		AA95D5971FBBC8A5008E2573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */; };
@@ -58,8 +58,8 @@
 /* Begin PBXFileReference section */
 		8E09F56B6636A4C49ABC0088 /* Pods-WaterLogging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterLogging.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaterLogging/Pods-WaterLogging.release.xcconfig"; sourceTree = "<group>"; };
 		A82101A51494FA567432CBF8 /* libPods-WaterLogging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WaterLogging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA1BBEA71FD3E98F0025074A /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		AA1BBEA81FD3E98F0025074A /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		AA1BBEA71FD3E98F0025074A /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
+		AA1BBEA81FD3E98F0025074A /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		AA396A901FBDCE3600CF1AE1 /* ModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelData.h; path = WaterLogging/ModelData.h; sourceTree = "<group>"; };
 		AA396A911FBDCE3600CF1AE1 /* ModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelData.m; path = WaterLogging/ModelData.m; sourceTree = "<group>"; };
 		AA396ABF1FBE02E200CF1AE1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 		AA6D873C1FFB7928003CBDD3 /* JJStockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJStockView.m; sourceTree = "<group>"; };
 		AA6D873D1FFB7928003CBDD3 /* JJStockScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJStockScrollView.h; sourceTree = "<group>"; };
 		AA6D873E1FFB7928003CBDD3 /* JJStockScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
-		AA6D87421FFB7958003CBDD3 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
-		AA6D87431FFB7958003CBDD3 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		AA6D87421FFB7958003CBDD3 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StationViewController.m; path = ../StationViewController.m; sourceTree = "<group>"; };
+		AA6D87431FFB7958003CBDD3 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StationViewController.h; path = ../StationViewController.h; sourceTree = "<group>"; };
 		AA73C3CB1FFDDF5B00134D99 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		AA73C3CC1FFDDF5B00134D99 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		AA73C3CD1FFDDF5B00134D99 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -126,8 +126,8 @@
 		AA95D5851FBBC8A4008E2573 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA95D5871FBBC8A5008E2573 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AA95D5881FBBC8A5008E2573 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AA95D58A1FBBC8A5008E2573 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		AA95D58B1FBBC8A5008E2573 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		AA95D58A1FBBC8A5008E2573 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		AA95D58B1FBBC8A5008E2573 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		AA95D5911FBBC8A5008E2573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA95D5931FBBC8A5008E2573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA95D5961FBBC8A5008E2573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -179,8 +179,6 @@
 		AA6D87381FFB78F3003CBDD3 /* StockView */ = {
 			isa = PBXGroup;
 			children = (
-				AA6D87421FFB7958003CBDD3 /* DemoViewController.m */,
-				AA6D87431FFB7958003CBDD3 /* DemoViewController.h */,
 				AA6D87391FFB7928003CBDD3 /* JJStockViewCell.m */,
 				AA6D873A1FFB7928003CBDD3 /* JJStockViewCell.h */,
 				AA6D873B1FFB7928003CBDD3 /* JJStockView.h */,
@@ -311,17 +309,19 @@
 		AA95D5831FBBC8A4008E2573 /* Water */ = {
 			isa = PBXGroup;
 			children = (
+				AA6D87421FFB7958003CBDD3 /* StationViewController.m */,
+				AA6D87431FFB7958003CBDD3 /* StationViewController.h */,
+				AA95D58A1FBBC8A5008E2573 /* MapViewController.h */,
+				AA95D58B1FBBC8A5008E2573 /* MapViewController.m */,
+				AA1BBEA71FD3E98F0025074A /* UploadViewController.h */,
+				AA1BBEA81FD3E98F0025074A /* UploadViewController.m */,
 				AA396AC21FBE02F400CF1AE1 /* XDMultTableView.h */,
 				AA396AC31FBE02F400CF1AE1 /* XDMultTableView.m */,
 				AA95D5871FBBC8A5008E2573 /* AppDelegate.h */,
 				AA95D5881FBBC8A5008E2573 /* AppDelegate.m */,
-				AA95D58A1FBBC8A5008E2573 /* FirstViewController.h */,
-				AA95D58B1FBBC8A5008E2573 /* FirstViewController.m */,
 				AA396ABF1FBE02E200CF1AE1 /* ViewController.h */,
 				AA396AC01FBE02E200CF1AE1 /* ViewController.m */,
 				AA95D5901FBBC8A5008E2573 /* Main.storyboard */,
-				AA1BBEA71FD3E98F0025074A /* SecondViewController.h */,
-				AA1BBEA81FD3E98F0025074A /* SecondViewController.m */,
 				AA95D5931FBBC8A5008E2573 /* Assets.xcassets */,
 				AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */,
 				AAFCBEB21FD1549600E19497 /* LaunchCSNL.storyboard */,
@@ -512,7 +512,7 @@
 				AA9EE4E81FD54109000796A9 /* teleCell.m in Sources */,
 				AA73C4001FFDDF5B00134D99 /* MJRefreshBackGifFooter.m in Sources */,
 				AA396AC11FBE02E200CF1AE1 /* ViewController.m in Sources */,
-				AA6D87441FFB7958003CBDD3 /* DemoViewController.m in Sources */,
+				AA6D87441FFB7958003CBDD3 /* StationViewController.m in Sources */,
 				AA6D873F1FFB7928003CBDD3 /* JJStockViewCell.m in Sources */,
 				AA73C4031FFDDF5B00134D99 /* MJRefreshGifHeader.m in Sources */,
 				AA73C4081FFDDF5B00134D99 /* NSBundle+MJRefresh.m in Sources */,
@@ -523,10 +523,10 @@
 				AA6D87411FFB7928003CBDD3 /* JJStockScrollView.m in Sources */,
 				AA73C3FC1FFDDF5B00134D99 /* MJRefreshHeader.m in Sources */,
 				AA73C4021FFDDF5B00134D99 /* MJRefreshBackStateFooter.m in Sources */,
-				AA1BBEA91FD3E98F0025074A /* SecondViewController.m in Sources */,
+				AA1BBEA91FD3E98F0025074A /* UploadViewController.m in Sources */,
 				AA73C3F81FFDDF5B00134D99 /* MJRefreshAutoFooter.m in Sources */,
 				AA95D5891FBBC8A5008E2573 /* AppDelegate.m in Sources */,
-				AA95D58C1FBBC8A5008E2573 /* FirstViewController.m in Sources */,
+				AA95D58C1FBBC8A5008E2573 /* MapViewController.m in Sources */,
 				AA95D5861FBBC8A4008E2573 /* main.m in Sources */,
 				AA73C4091FFDDF5B00134D99 /* UIScrollView+MJExtension.m in Sources */,
 			);

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 xsluo. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "UploadViewController.h"
 #import  "AFNetworking.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AVFoundation/AVFoundation.h>
@@ -14,7 +14,7 @@
 #import "MBProgressHUD/MBProgressHUD.h"
 #import <Foundation/Foundation.h>
 
-@interface SecondViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,NSXMLParserDelegate,UITextViewDelegate,UITextFieldDelegate>
+@interface UploadViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,NSXMLParserDelegate,UITextViewDelegate,UITextFieldDelegate>
 @property NSInteger fwidth;  //屏幕宽度
 @property NSInteger fheight;  //屏幕高度
 @property NSInteger offsetx;  //水平偏移
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation SecondViewController
+@implementation UploadViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -396,12 +396,14 @@
         UIView *imageView = [self.scrollView viewWithTag:i];
         [imageView removeFromSuperview];
     }
-    [self.pictures removeAllObjects];
-    if(self.offsety>0){
+    
+    if([self.pictures count] >= 5){
         self.offsety = self.offsety*(-1)  - 20;
-       [self updateLayout];
+        [self updateLayout];
     }
 
+    [self.pictures removeAllObjects];
+  
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
