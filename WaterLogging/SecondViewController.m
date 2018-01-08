@@ -31,6 +31,7 @@
 @property (nonatomic,strong) NSString *responsString;
 @property (nonatomic,strong) NSString *currentElementName;
 @property (nonatomic,retain) UIView *scrollView;
+@property (nonnull,retain) NSMutableArray *pictures;
 
 @end
 
@@ -54,12 +55,13 @@
     
     self.content.delegate = self;
     self.view.userInteractionEnabled = YES;
+    
+    self.pictures = [[NSMutableArray alloc] init];
 
     
     self.fwidth = self.view.frame.size.width;
     self.fheight = self.view.frame.size.height;
     self.offsetx = 0;
-    self.offsety = 0;
     
     // Do any additional setup after loading the view.
     #pragma mark - 添加滚动视图
@@ -77,13 +79,13 @@
     UILabel *lbAddPic = [[UILabel alloc]initWithFrame:CGRectMake(16, 10, 120, 40)];
     lbAddPic.font = font;
     lbAddPic.text = @"添加图片";
+    [lbAddPic setTag:100];
     [scrollView addSubview:lbAddPic];
 
     // 2.创建图片按钮
     UIButton *btAddpic = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [btAddpic setFrame:CGRectMake(20, 40, 60, 60)];
     [btAddpic setTag:101];
-    self.upButton.userInteractionEnabled = NO;
     [btAddpic addTarget:self action:@selector(takePhoto:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:btAddpic];
     
@@ -96,29 +98,31 @@
     scrollView.showsVerticalScrollIndicator = NO;
     
 
-    UILabel *lbName = [[UILabel alloc]initWithFrame:CGRectMake(16, 100+_offsety, 120, 40)];
+    UILabel *lbName = [[UILabel alloc]initWithFrame:CGRectMake(16, 100, 120, 40)];
     lbName.text = @"联系人";
     lbName.font = font;
+    [lbName setTag:201];
     [scrollView addSubview:lbName];
     
-    UITextField *tfName = [[UITextField alloc]initWithFrame:CGRectMake(110, 100+_offsety, _fwidth-126, 40)];
+    UITextField *tfName = [[UITextField alloc]initWithFrame:CGRectMake(110, 100, _fwidth-126, 40)];
     tfName.text = @"";
     tfName.placeholder = @"请输入联系人";
     tfName.font = font;
     tfName.returnKeyType = UIReturnKeyDone;
     tfName.delegate = self;
     tfName.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:0.5];
-    [tfName setTag:201];
+    [tfName setTag:202];
     self.contactName = tfName;
     [scrollView addSubview:tfName];
     
 
-    UILabel *lbPhone = [[UILabel alloc]initWithFrame:CGRectMake(16, 160+_offsety, 120, 40)];
+    UILabel *lbPhone = [[UILabel alloc]initWithFrame:CGRectMake(16, 160, 120, 40)];
     lbPhone.text = @"联系电话";
     lbPhone.font = font;
+    [lbPhone setTag:203];
     [scrollView addSubview:lbPhone];
     
-    UITextField *tfPhone = [[UITextField alloc]initWithFrame:CGRectMake(110, 160+_offsety, _fwidth-126, 40)];
+    UITextField *tfPhone = [[UITextField alloc]initWithFrame:CGRectMake(110, 160, _fwidth-126, 40)];
     tfPhone.text = @"";
     tfPhone.placeholder = @"请输入联系电话";
     tfPhone.font = font;
@@ -126,34 +130,35 @@
     tfPhone.returnKeyType = UIReturnKeyDone;
     tfPhone.delegate = self;
     tfPhone.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:0.5];
-    [tfPhone setTag:202];
+    [tfPhone setTag:204];
     self.contactPhone = tfPhone;
     [scrollView addSubview:tfPhone];
 
-    UILabel *lbContent = [[UILabel alloc]initWithFrame:CGRectMake(16, 220+_offsety, 120, 40)];
+    UILabel *lbContent = [[UILabel alloc]initWithFrame:CGRectMake(16, 220, 120, 40)];
     lbContent.text = @"输入内容";
     lbContent.font = font;
+    [lbContent setTag:205];
     [scrollView addSubview:lbContent];
     
-    UILabel *lbLeft = [[UILabel alloc]initWithFrame:CGRectMake(110, 220+_offsety, _fwidth-126, 40)];
+    UILabel *lbLeft = [[UILabel alloc]initWithFrame:CGRectMake(110, 220, _fwidth-126, 40)];
     lbLeft.text = @"还可以输入120字";
     lbLeft.font = font;
     lbLeft.textColor = [UIColor colorWithRed:21.0/255 green:116.0/255 blue:204.0/255 alpha:0.5];
-    [lbLeft setTag:203];
+    [lbLeft setTag:206];
     [scrollView addSubview:lbLeft];
     
-    UITextView *tvContent = [[UITextView alloc]initWithFrame:CGRectMake(16, 270+_offsety, _fwidth-32, 120)];
+    UITextView *tvContent = [[UITextView alloc]initWithFrame:CGRectMake(16, 270, _fwidth-32, 120)];
     tvContent.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:0.5];
 
     tvContent.font = font;
     tvContent.returnKeyType = UIReturnKeyDone;
     tvContent.delegate = self;
-    [tvContent setTag:204];
+    [tvContent setTag:207];
     self.content = tvContent;
     [scrollView addSubview:tvContent];
     
     UIButton  *btSubmit =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btSubmit setFrame:CGRectMake(_fwidth/2-60, 410+_offsety, 120, 40)];
+    [btSubmit setFrame:CGRectMake(_fwidth/2-60, 410, 120, 40)];
     [btSubmit setTitle:@"提交" forState:UIControlStateNormal];
     btSubmit.titleLabel.font = font;
     btSubmit.backgroundColor = [UIColor colorWithRed:21.0/255 green:116.0/255 blue:204.0/255 alpha:0.5];
@@ -161,6 +166,7 @@
     btSubmit.layer.cornerRadius=5;
     [btSubmit addTarget:self action:@selector(upLoad:) forControlEvents:UIControlEventTouchUpInside];
     self.upButton = btSubmit;
+    [btSubmit setTag:208];
     [scrollView addSubview:btSubmit];
  }
 
@@ -172,7 +178,7 @@
 - (void)textViewDidChange:(UITextView *)textView{
     NSInteger count = textView.text.length;
     NSInteger left = 120-count;
-    UILabel *lbLeft = [self.scrollView viewWithTag:203];
+    UILabel *lbLeft = [self.scrollView viewWithTag:206];
     lbLeft.text = [NSString stringWithFormat:@"(还可以输入%ld字)",(long)left];
 }
 
@@ -240,39 +246,74 @@
 
 #pragma mark - 拍照完毕，保存图片
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+
+    self.fileData = [[NSData alloc]init];
+    //压缩图片
+    self.fileData = UIImageJPEGRepresentation(info[UIImagePickerControllerEditedImage], 0.2);
+    [self.pictures addObject:self.fileData];
+
+    NSInteger k = [self.pictures count];
     NSString *mediaType=[info objectForKey:UIImagePickerControllerMediaType];
     //判断资源类型
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
-        
         UIImageView *imageV = [[UIImageView alloc] init];
-        imageV.frame = CGRectMake(16, 10, 80, 80);
+        NSInteger picx = (self.view.frame.size.width-48)/5;   //单张图片宽度
+        self.offsety = picx;
+        
+        if(k<6){
+            imageV.frame = CGRectMake(16+picx*(k-1)+4*(k-1), 10, picx, picx);
+        }else{
+            imageV.frame = CGRectMake(16+picx*(k-6)+4*(k-6), 20+picx, picx, picx);
+        }
+        
         imageV.backgroundColor = [UIColor grayColor];
         imageV.image = info[UIImagePickerControllerEditedImage];
-        [imageV setTag:107];
+        [imageV setTag:300+k];
         
         [self.scrollView addSubview:imageV];//把对象添加到控制器中
         self.imageView = imageV;
-        
-        //压缩图片
-        self.fileData = [[NSData alloc]init];
-        self.fileData = UIImageJPEGRepresentation(self.imageView.image, 0.2);
+
+       // self.fileData = UIImageJPEGRepresentation(self.imageView.image, 0.2);
         
         //如果是拍照，保存图片至相册
         if(self.imagePickerController.sourceType == UIImagePickerControllerSourceTypeCamera){
             UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
         }
         
+        //更新添加按钮位置
         UIButton *btAdd = (UIButton * )[self.scrollView viewWithTag:101];
         CGRect rect = btAdd.frame;
-        if(rect.origin.x < 100){
-            rect.origin.x += 100;
-            rect.origin.y -= 20;
+        if(k==9){
+            [btAdd setHidden:YES];
+        }
+        
+        if(k==1){
+            UIView *lbAddPic = [self.scrollView viewWithTag:100];
+            [lbAddPic setHidden:YES];  //隐藏文字
+            rect.origin.x +=picx+10;
+            rect.origin.y = picx/2-20;
+        }else if(k==2){
+            rect.origin.x += picx;
+        }else if(k==5){
+            rect.origin.x = 16;
+            rect.origin.y +=picx+10;
+            [self updateLayout];
+        }else{
+            rect.origin.x += picx+4;
         }
         btAdd.frame = rect;
-        self.upButton.userInteractionEnabled = YES;
-        
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - 修改控件位置
+- (void)updateLayout{
+    for(int i=0;i<8;i++){
+        UIView *control = [self.scrollView viewWithTag:201+i];
+        CGRect rect = control.frame;
+        rect.origin.y += self.offsety + 10;
+        control.frame = rect;
+    }
 }
 
 #pragma mark -图片保存完毕的回调
@@ -336,26 +377,30 @@
     //5 resume
     [task resume];
     
-    UITextField *name = [self.scrollView viewWithTag:201];
-    UITextField *phone = [self.scrollView viewWithTag:202];
-    UILabel *remain = [self.scrollView viewWithTag:203];
-    UITextView *content = [self.scrollView viewWithTag:204];
+    UITextField *name = [self.scrollView viewWithTag:202];
+    UITextField *phone = [self.scrollView viewWithTag:204];
+    UILabel *remain = [self.scrollView viewWithTag:206];
+    UITextView *content = [self.scrollView viewWithTag:207];
     name.text = @"";
     phone.text = @"";
     remain.text = @"还可输入120字";
     content.text = @"";
     
+    UIView *lbAddPic = [self.scrollView viewWithTag:100];
+    [lbAddPic setHidden:NO];
+    UIView *btAddpic = [self.scrollView viewWithTag:101];
+    [btAddpic setFrame:CGRectMake(20, 40, 60, 60)];
     
-    UIImageView *imageV = [self.scrollView viewWithTag:107];
-    [imageV removeFromSuperview];
-    
-    UIButton *btAdd = (UIButton * )[self.scrollView viewWithTag:101];
-    CGRect rect = btAdd.frame;
-    if(rect.origin.x >100){
-        rect.origin.x -= 100;
-        rect.origin.y += 20;
+    NSInteger k = [self.pictures count];
+    for(int i=301;i<=300+k;i++){
+        UIView *imageView = [self.scrollView viewWithTag:i];
+        [imageView removeFromSuperview];
     }
-    btAdd.frame = rect;
+    [self.pictures removeAllObjects];
+    if(self.offsety>0){
+        self.offsety = self.offsety*(-1)  - 20;
+       [self updateLayout];
+    }
 
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
@@ -364,13 +409,7 @@
     
     NSMutableString *bodyStr = [NSMutableString string];
     NSString *boundary = @"HS23dsdf435Sdfasd23A4dfDF43SA";
-    
-    //1 pic
-    /*
-     --AaB03x
-     Content-disposition: form-data; name="pic"; filename="file"
-     Content-Type: application/octet-stream
-     */
+ 
     //获取系统时间
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"YYMMddHHmmss"];
@@ -400,11 +439,8 @@
     [bodyStr appendFormat:@"--%@\r\n",boundary];
     [bodyStr appendFormat:@"%@", appendfile];
     [bodyStr appendFormat:@"\r\n"];
-    //[bodyStr appendFormat:@"Content-Type: application/octet-stream"];
     [bodyStr appendFormat:@"Content-Type: application/jpg"];
     [bodyStr appendFormat:@"\r\n\r\n"];
-    
-    // [bodyStr appendFormat:@"--%@--\r\n",boundary];//\n:换行 \n:切换到行首
     
     NSMutableData *bodyData = [NSMutableData data];
     NSLog(@"%@",bodyStr);
@@ -417,7 +453,7 @@
     NSLog(@"length of picdata %lu",(unsigned long)picdata.length);
     [bodyData appendData:picdata];
     
-    //(3)--Str--
+    //(3)--endStr--
     NSString *endStr = [NSString stringWithFormat:@"\r\n--%@--\r\n",boundary];
     NSData *endData = [endStr dataUsingEncoding:NSUTF8StringEncoding];
     [bodyData appendData:endData];
@@ -425,7 +461,6 @@
 }
 
 # pragma mark - 协议方法
-
 // 开始
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
     self.responsString = [[NSString alloc]init];

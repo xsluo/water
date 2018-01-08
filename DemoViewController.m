@@ -352,13 +352,13 @@
 }
 
 - (void)didSelect:(JJStockView*)stockView atRowPath:(NSUInteger)row{
-    NSLog(@"DidSelect Row:%ld",row);
+    NSLog(@"DidSelect Row:%ld",(unsigned long)row);
 }
 
 #pragma mark - Button Action
 
 - (void)buttonAction:(UIButton*)sender{
-    NSLog(@"Button Row:%ld",sender.tag);
+    NSLog(@"Button Row:%ld",(long)sender.tag);
 }
 
 #pragma mark - Get

@@ -211,7 +211,7 @@ static const CGFloat CELLHEIGHT = 44.0f;
     }else{
         if (_autoAdjustOpenAndClose) {
             [[_multopenSectionArray copy] enumerateObjectsUsingBlock:^(NSNumber *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSLog(@"%ld",[obj integerValue]);
+                NSLog(@"%ld",(long)[obj integerValue]);
                 NSArray *otherDeleteArray = [self buildDeleteRowWithSection:[obj integerValue]];
                 [_multopenSectionArray removeObject:obj];
                 [_tableView deleteRowsAtIndexPaths:otherDeleteArray withRowAnimation:UITableViewRowAnimationFade];
