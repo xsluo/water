@@ -417,7 +417,9 @@
     [formatter setDateFormat:@"YYMMddHHmmss"];
     NSString *dateTime = [formatter stringFromDate:[NSDate date]];
     
+    /*
     NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@.jpg\"",dateTime];
+    */
     
     //1 姓名
     [bodyStr appendFormat:@"--%@\r\n",boundary];//\n:换行 \n:切换到行首
@@ -437,6 +439,14 @@
     [bodyStr appendFormat:@"\r\n\r\n"];
     [bodyStr appendFormat:@"%@\r\n",self.content.text];
     
+    NSMutableData *bodyData = [NSMutableData data];
+    
+    //(1)startData
+    NSData *startData = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+    [bodyData appendData:startData];
+
+    
+    /*
     //4 图片
     [bodyStr appendFormat:@"--%@\r\n",boundary];
     [bodyStr appendFormat:@"%@", appendfile];
@@ -444,17 +454,23 @@
     [bodyStr appendFormat:@"Content-Type: application/jpg"];
     [bodyStr appendFormat:@"\r\n\r\n"];
     
-    NSMutableData *bodyData = [NSMutableData data];
-    NSLog(@"%@",bodyStr);
-    //(1)startData
-    NSData *startData = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
-    [bodyData appendData:startData];
-    
     //(2)pic
-    NSData *picdata  = self.fileData;
-    NSLog(@"length of picdata %lu",(unsigned long)picdata.length);
-    [bodyData appendData:picdata];
-    
+    */
+    for(int i=0;i<[self.pictures count];i++){
+        [bodyStr appendFormat:@"--%@\r\n",boundary];
+        NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@%d.jpg\"",dateTime,i];
+        [bodyStr appendFormat:@"%@", appendfile];
+        [bodyStr appendFormat:@"\r\n"];
+        [bodyStr appendFormat:@"Content-Type: application/jpg"];
+        [bodyStr appendFormat:@"\r\n\r\n"];
+
+        NSData *strData = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+        [bodyData appendData:strData];
+        
+        NSData *picdata  = [self.pictures objectAtIndex:i];
+        [bodyData appendData:picdata];
+    }
+
     //(3)--endStr--
     NSString *endStr = [NSString stringWithFormat:@"\r\n--%@--\r\n",boundary];
     NSData *endData = [endStr dataUsingEncoding:NSUTF8StringEncoding];
@@ -478,7 +494,6 @@
 
 // 获取节点的值 (这个方法在获取到节点头和节点尾后，会分别调用一次)
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    NSLog(@"value : %@", string);
     if ([_currentElementName isEqualToString:@"msg"]) {
         self.responsString = string;
         if([string isEqualToString:@"保存成功"]){
@@ -494,14 +509,6 @@
 }
 // 结束
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    //[MBProgressHUD hideHUDForView:self.view animated:YES];
-    /*
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"结果" message:self.responsString preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-    [alertController addAction:okAction];
-    //[MBProgressHUD hideHUDForView:self.view animated:YES];
-    [self presentViewController:alertController animated:YES completion:nil];
-    */
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
