@@ -23,7 +23,6 @@
 @property (weak, nonatomic)  UITextField *contactName;
 @property (weak, nonatomic)  UITextField *contactPhone;
 @property (weak, nonatomic)  UITextView *content;
-@property (weak, nonatomic)  UIButton *upButton;
 @property (nonatomic,strong) NSString *photoUrl;
 @property UIImagePickerController *imagePickerController;
 @property (strong,nonatomic) UIImageView *imageView;
@@ -49,9 +48,6 @@
     self.imageView = [[UIImageView alloc]init];
     self.photoUrl = [[NSString alloc]init];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    self.upButton = [self.scrollView viewWithTag:103];
-    self.upButton.userInteractionEnabled = NO; //没有照片按钮不可用
     
     self.content.delegate = self;
     self.view.userInteractionEnabled = YES;
@@ -115,7 +111,6 @@
     self.contactName = tfName;
     [scrollView addSubview:tfName];
     
-
     UILabel *lbPhone = [[UILabel alloc]initWithFrame:CGRectMake(16, 160, 120, 40)];
     lbPhone.text = @"联系电话";
     lbPhone.font = font;
@@ -158,16 +153,26 @@
     [scrollView addSubview:tvContent];
     
     UIButton  *btSubmit =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btSubmit setFrame:CGRectMake(_fwidth/2-60, 410, 120, 40)];
+    [btSubmit setFrame:CGRectMake(_fwidth/2-120, 410, 100, 40)];
     [btSubmit setTitle:@"提交" forState:UIControlStateNormal];
     btSubmit.titleLabel.font = font;
     btSubmit.backgroundColor = [UIColor colorWithRed:21.0/255 green:116.0/255 blue:204.0/255 alpha:0.5];
     btSubmit.clipsToBounds=YES;
     btSubmit.layer.cornerRadius=5;
     [btSubmit addTarget:self action:@selector(upLoad:) forControlEvents:UIControlEventTouchUpInside];
-    self.upButton = btSubmit;
     [btSubmit setTag:208];
     [scrollView addSubview:btSubmit];
+    
+    UIButton  *btCancel =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [btCancel setFrame:CGRectMake(_fwidth/2+20, 410, 100, 40)];
+    [btCancel setTitle:@"取消" forState:UIControlStateNormal];
+    btCancel.titleLabel.font = font;
+    btCancel.backgroundColor = [UIColor colorWithRed:21.0/255 green:116.0/255 blue:204.0/255 alpha:0.5];
+    btCancel.clipsToBounds=YES;
+    btCancel.layer.cornerRadius=5;
+    [btCancel addTarget:self action:@selector(ResetController) forControlEvents:UIControlEventTouchUpInside];
+    [btCancel setTag:209];
+    [scrollView addSubview:btCancel];
  }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
@@ -376,7 +381,7 @@
     }];
     //5 resume
     [task resume];
-    
+    /*
     UITextField *name = [self.scrollView viewWithTag:202];
     UITextField *phone = [self.scrollView viewWithTag:204];
     UILabel *remain = [self.scrollView viewWithTag:206];
@@ -401,11 +406,43 @@
         self.offsety = self.offsety*(-1)  - 20;
         [self updateLayout];
     }
-
     [self.pictures removeAllObjects];
-  
+     */
+    [self ResetController];
+    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
+
+- (void)ResetController{
+    
+    UITextField *name = [self.scrollView viewWithTag:202];
+    UITextField *phone = [self.scrollView viewWithTag:204];
+    UILabel *remain = [self.scrollView viewWithTag:206];
+    UITextView *content = [self.scrollView viewWithTag:207];
+    name.text = @"";
+    phone.text = @"";
+    remain.text = @"还可输入120字";
+    content.text = @"";
+    UIView *lbAddPic = [self.scrollView viewWithTag:100];
+    [lbAddPic setHidden:NO];
+    UIView *btAddpic = [self.scrollView viewWithTag:101];
+    [btAddpic setFrame:CGRectMake(20, 40, 60, 60)];
+    
+    NSInteger k = [self.pictures count];
+    for(int i=301;i<=300+k;i++){
+        UIView *imageView = [self.scrollView viewWithTag:i];
+        [imageView removeFromSuperview];
+    }
+    
+    if([self.pictures count] >= 5){
+        self.offsety = self.offsety*(-1)  - 20;
+        [self updateLayout];
+    }
+    [self.pictures removeAllObjects];
+
+    
+}
+
 
 -(NSMutableData *)buildBody{
     
