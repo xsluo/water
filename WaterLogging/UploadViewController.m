@@ -457,6 +457,7 @@
     //(2)pic
     */
     for(int i=0;i<[self.pictures count];i++){
+        [bodyStr setString:@""];
         [bodyStr appendFormat:@"--%@\r\n",boundary];
         NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@%d.jpg\"",dateTime,i];
         [bodyStr appendFormat:@"%@", appendfile];
@@ -469,6 +470,7 @@
         
         NSData *picdata  = [self.pictures objectAtIndex:i];
         [bodyData appendData:picdata];
+        NSLog(@"%d and bodystr:%@",i,bodyStr);
     }
 
     //(3)--endStr--

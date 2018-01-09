@@ -26,21 +26,19 @@
     self.modelArray = [[NSMutableArray alloc]init];
     //self.navigationItem.title = @"股票表格";
     self.stockView.frame = CGRectMake(0, 80, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-130);
-    [self  loadData];
+    //[self  loadData];
     [self.view addSubview:self.stockView];
-    /*
-    self.stockView.jjStockTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
-    
-    // Enter the refresh status immediately
-    [self.stockView.jjStockTableView.mj_header beginRefreshing];
-     */
+  
     __weak __typeof(self) weakSelf = self;
     
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     self.stockView.jjStockTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.modelArray removeAllObjects];
         [weakSelf loadData];
     }];
 
+    //self.stockView.jjStockTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    
     // 马上进入刷新状态
     [self.stockView.jjStockTableView.mj_header beginRefreshing];
 }
