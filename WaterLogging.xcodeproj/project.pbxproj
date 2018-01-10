@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA1BBEA91FD3E98F0025074A /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1BBEA81FD3E98F0025074A /* UploadViewController.m */; };
+		AA3801E22004ED0600260212 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3801E12004ED0600260212 /* add.png */; };
 		AA396A921FBDCE3600CF1AE1 /* ModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396A911FBDCE3600CF1AE1 /* ModelData.m */; };
 		AA396AC11FBE02E200CF1AE1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396AC01FBE02E200CF1AE1 /* ViewController.m */; };
 		AA396AC41FBE02F400CF1AE1 /* XDMultTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA396AC31FBE02F400CF1AE1 /* XDMultTableView.m */; };
@@ -60,6 +61,7 @@
 		A82101A51494FA567432CBF8 /* libPods-WaterLogging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WaterLogging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1BBEA71FD3E98F0025074A /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
 		AA1BBEA81FD3E98F0025074A /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
+		AA3801E12004ED0600260212 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		AA396A901FBDCE3600CF1AE1 /* ModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelData.h; path = WaterLogging/ModelData.h; sourceTree = "<group>"; };
 		AA396A911FBDCE3600CF1AE1 /* ModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelData.m; path = WaterLogging/ModelData.m; sourceTree = "<group>"; };
 		AA396ABF1FBE02E200CF1AE1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		AA3AA3BA1FBEAD850021D122 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				AA3801E12004ED0600260212 /* add.png */,
 				AA3AA3BB1FBEAD850021D122 /* applogo.png */,
 				AA3AA3BC1FBEAD850021D122 /* bars.png */,
 				AA3AA3BD1FBEAD850021D122 /* bars2.png */,
@@ -428,6 +431,7 @@
 				AA73C4061FFDDF5B00134D99 /* MJRefresh.bundle in Resources */,
 				AA3AA3C41FBEAD860021D122 /* bars.png in Resources */,
 				AAFCBEB31FD1549600E19497 /* LaunchCSNL.storyboard in Resources */,
+				AA3801E22004ED0600260212 /* add.png in Resources */,
 				AA3AA3C71FBEAD860021D122 /* map2.png in Resources */,
 				AA95D5971FBBC8A5008E2573 /* LaunchScreen.storyboard in Resources */,
 				AA9EE4E91FD54109000796A9 /* teleCell.xib in Resources */,

@@ -40,10 +40,13 @@
 // 页面开始加载时调用
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
    // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.label.text = @"正在加载内涝地图……";
 }
 // 当内容开始返回时调用
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    //[MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 // 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
@@ -67,13 +70,13 @@
         /// 防止iOS 10及其之后，拨打电话系统弹出框延迟出现
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone]];
+            dispatch_async(dispatch_get_main_queue(),^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
         });
     }
     decisionHandler(WKNavigationActionPolicyAllow);
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
 }
-
-
-
 
 @end
