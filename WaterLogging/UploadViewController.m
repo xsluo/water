@@ -41,7 +41,7 @@
     
     self.imagePickerController = [[UIImagePickerController alloc] init];
     self.imagePickerController.delegate = self;
-
+    
     self.imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     self.imagePickerController.allowsEditing = YES;
     
@@ -53,14 +53,14 @@
     self.view.userInteractionEnabled = YES;
     
     self.pictures = [[NSMutableArray alloc] init];
-
+    
     
     self.fwidth = self.view.frame.size.width;
     self.fheight = self.view.frame.size.height;
     self.offsetx = 0;
     
     // Do any additional setup after loading the view.
-    #pragma mark - 添加滚动视图
+#pragma mark - 添加滚动视图
     // frame中的size指UIScrollView的可视范围
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.frame = CGRectMake(0, 80, _fwidth, _fheight-130);
@@ -68,16 +68,16 @@
     self.scrollView = scrollView;
     [self.view addSubview:scrollView];
     
-    #pragma mark - 定义界面
+#pragma mark - 定义界面
     UIFont *font = [UIFont systemFontOfSize:20]; //字体大小
-
+    
     //1.添加图片
     UILabel *lbAddPic = [[UILabel alloc]initWithFrame:CGRectMake(16, 20, 120, 40)];
     lbAddPic.font = font;
     lbAddPic.text = @"添加图片";
     [lbAddPic setTag:100];
     [scrollView addSubview:lbAddPic];
-
+    
     // 2.创建图片按钮
     
     UIButton *btAddpic = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -91,12 +91,12 @@
     // 3.设置scrollView的属性
     // 设置UIScrollView的滚动范围（内容大小）
     scrollView.contentSize = CGSizeMake(_fwidth, _fheight + 50);
-                              
+    
     // 4.隐藏滚动条
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     
-
+    
     UILabel *lbName = [[UILabel alloc]initWithFrame:CGRectMake(16, 120, 120, 40)];
     lbName.text = @"联系人";
     lbName.font = font;
@@ -131,7 +131,7 @@
     [tfPhone setTag:204];
     self.contactPhone = tfPhone;
     [scrollView addSubview:tfPhone];
-
+    
     UILabel *lbContent = [[UILabel alloc]initWithFrame:CGRectMake(16, 240, 120, 40)];
     lbContent.text = @"输入内容";
     lbContent.font = font;
@@ -147,7 +147,7 @@
     
     UITextView *tvContent = [[UITextView alloc]initWithFrame:CGRectMake(16, 290, _fwidth-32, 120)];
     tvContent.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:0.5];
-
+    
     tvContent.font = font;
     tvContent.returnKeyType = UIReturnKeyDone;
     tvContent.delegate = self;
@@ -180,7 +180,7 @@
     [btCancel addTarget:self action:@selector(ResetController) forControlEvents:UIControlEventTouchUpInside];
     [btCancel setTag:209];
     [scrollView addSubview:btCancel];
- }
+}
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     //self.content.text = @"";
@@ -258,14 +258,14 @@
 
 #pragma mark - 拍照完毕，保存图片
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-
+    
     self.fileData = [[NSData alloc]init];
     //压缩图片
     self.fileData = UIImageJPEGRepresentation(info[UIImagePickerControllerEditedImage], 0.2);
     [self.pictures addObject:self.fileData];
-
+    
     NSInteger k = [self.pictures count];
-
+    
     NSString *mediaType=[info objectForKey:UIImagePickerControllerMediaType];
     //判断资源类型
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
@@ -280,7 +280,7 @@
         }
         
         UIButton *btDel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-
+        
         btDel.backgroundColor = [UIColor colorWithRed:255.0/255 green:0.0/255 blue:0.0/255 alpha:0.7];
         btDel.titleLabel.textColor = [UIColor whiteColor];
         [btDel setTitle:@"一" forState:UIControlStateNormal];
@@ -301,10 +301,10 @@
         [imageV setUserInteractionEnabled:YES];
         
         [self.scrollView addSubview:imageV];//把对象添加到控制器中
-
+        
         self.imageView = imageV;
-
-       // self.fileData = UIImageJPEGRepresentation(self.imageView.image, 0.2);
+        
+        // self.fileData = UIImageJPEGRepresentation(self.imageView.image, 0.2);
         
         //如果是拍照，保存图片至相册
         if(self.imagePickerController.sourceType == UIImagePickerControllerSourceTypeCamera){
@@ -336,13 +336,67 @@
 
 #pragma mark - 删除图片
 -(void)delPic:(id)sender{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"删除图片" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    //取消:style:UIAlertActionStyleCancel
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancelAction];
+    
+    //确定
+    UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action){
+        UIButton *btDel = (UIButton*)sender;
+        UIView *imageView = [btDel superview];
+        UIView *scrollView = [imageView superview];
+        
+        int k = (int)imageView.tag - 301;
+        [self.pictures removeObjectAtIndex:k];
+        
+        [imageView removeFromSuperview];
+        
+        int picx = (self.view.frame.size.width-48)/5;   //单张图片宽度ƒ
+        
+        //NSLog(@"-------picture count %lu",(unsigned long)[self.pictures count]);
+        for (int i=k+1; i<=[self.pictures count]; i++) {
+            int tag = 301+i;
+            UIView *v = [scrollView viewWithTag:tag];
+            CGRect rect = v.frame;
+            if(tag!=306){
+                rect.origin.x -=picx +4;
+                v.frame = rect;
+                [v setTag:tag-1];
+            }
+            else{
+                rect.origin.y -=picx +10;
+                rect.origin.x +=4*(picx +4);
+                v.frame = rect;
+                [v setTag:tag-1];
+            }
+        }
+        
+        UIButton *btAdd = (UIButton*)[scrollView viewWithTag:101];
+        CGRect rect = btAdd.frame;
+        if([self.pictures count] !=4){
+            rect.origin.x -=picx+4;
+        }else{
+            rect.origin.y -= picx+10;
+            rect.origin.x += 4*(picx+4);
+            [self updateLayout1];
+        }
+        btAdd.frame = rect;
+    }];
+    [alertController addAction:OKAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+-(void)delPic1:(id)sender{
     UIButton *btDel = (UIButton*)sender;
     UIView *imageView = [btDel superview];
     UIView *scrollView = [imageView superview];
     /*ƒ
-    for(int i=301;i<301+[self.pictures count];i++){
-        
-    }*/
+     for(int i=301;i<301+[self.pictures count];i++){
+     
+     }*/
     
     int k = (int)imageView.tag - 301;
     [self.pictures removeObjectAtIndex:k];
@@ -350,7 +404,7 @@
     [imageView removeFromSuperview];
     
     int picx = (self.view.frame.size.width-48)/5;   //单张图片宽度ƒ
-
+    
     //NSLog(@"-------picture count %lu",(unsigned long)[self.pictures count]);
     for (int i=k+1; i<=[self.pictures count]; i++) {
         int tag = 301+i;
@@ -378,7 +432,7 @@
         rect.origin.x += 4*(picx+4);
         [self updateLayout1];
     }
-        btAdd.frame = rect;
+    btAdd.frame = rect;
 }
 
 
@@ -463,7 +517,7 @@
     }];
     //5 resume
     [task resume];
-
+    
     [self ResetController];
     
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -504,15 +558,15 @@
     
     NSMutableString *bodyStr = [NSMutableString string];
     NSString *boundary = @"HS23dsdf435Sdfasd23A4dfDF43SA";
- 
+    
     //获取系统时间
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"YYMMddHHmmss"];
     NSString *dateTime = [formatter stringFromDate:[NSDate date]];
     
     /*
-    NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@.jpg\"",dateTime];
-    */
+     NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@.jpg\"",dateTime];
+     */
     
     //1 姓名
     [bodyStr appendFormat:@"--%@\r\n",boundary];//\n:换行 \n:切换到行首
@@ -537,34 +591,42 @@
     //startData
     NSData *startData = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
     [bodyData appendData:startData];
-
+    
     //4 图片
     for(int i=0;i<[self.pictures count];i++){
         [bodyStr setString:@""];
         [bodyStr appendFormat:@"\r\n--%@\r\n",boundary];
-        NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic\"; filename=\"%@%d.jpg\"",dateTime,i];
+        NSString *appendfile = [[NSString alloc]initWithFormat:@"Content-disposition: form-data; name=\"pic%d\"; filename=\"%@%d.jpg\"",i,dateTime,i];
         [bodyStr appendFormat:@"%@", appendfile];
         [bodyStr appendFormat:@"\r\n"];
-        [bodyStr appendFormat:@"Content-Type: application/jpg"];
+        [bodyStr appendFormat:@"Content-Type: image/jpg"];
         [bodyStr appendFormat:@"\r\n\r\n"];
-
+        
         NSData *strData = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
         [bodyData appendData:strData];
         
         NSData *picdata  = [self.pictures objectAtIndex:i];
         [bodyData appendData:picdata];
+        
+        //NSString *mystr = @"这里是图片";
+        //NSData *pic = [mystr dataUsingEncoding:NSUTF8StringEncoding];
+        //[bodyData appendData:pic];
         //NSLog(@"%d and bodystr:%@",i,bodyStr);
-        NSLog(@"%@",bodyStr);
-
+        //NSLog(@"%@",bodyStr);
+        
     }
-
+    
     //--endStr--
     NSString *endStr = [NSString stringWithFormat:@"\r\n--%@--\r\n",boundary];
     NSData *endData = [endStr dataUsingEncoding:NSUTF8StringEncoding];
     [bodyData appendData:endData];
-    NSLog(@"%@",endStr);
+    //NSLog(@"%@",endStr);
+    
+    NSString *str = [[NSString alloc] initWithData:bodyData encoding:NSUTF8StringEncoding];
+    NSLog(@"===bodyData==%@",str);
+    
     return bodyData;
-
+    
 }
 
 # pragma mark - 协议方法

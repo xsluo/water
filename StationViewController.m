@@ -28,24 +28,15 @@
     self.stockView.frame = CGRectMake(0, 80, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-130);
     //[self  loadData];
     [self.view addSubview:self.stockView];
-  
-    __weak __typeof(self) weakSelf = self;
-    
-    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
-    self.stockView.jjStockTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self.modelArray removeAllObjects];
-        [weakSelf loadData];
-    }];
 
-    //self.stockView.jjStockTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
-    
+    self.stockView.jjStockTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+  
     // 马上进入刷新状态
     [self.stockView.jjStockTableView.mj_header beginRefreshing];
 }
 
 - (void) loadData{
-   // [MBProgressHUD showHUDAddedTo:self.stockView animated:YES];
-    
+
     /*接口：http://183.238.82.216:9090/waterlogging/comm/RealTimeData_View/list
      方法：POST
      参数：
@@ -54,7 +45,9 @@
      sortProperty: "DATA_VALUE_Z",
      sortValue: "desc"
      }*/
-    
+
+    //[self.modelArray removeAllObjects];
+
     // 1.创建请求
     NSURL *url = [NSURL URLWithString:@"http://183.238.82.216:9090/waterlogging/comm/RealTimeData_View/list"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -76,7 +69,9 @@
     request.HTTPBody = data;
     
     // 4.发送请求
+    
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        [self.modelArray removeAllObjects];
         if(data){
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             
@@ -102,7 +97,7 @@
                 model.location =obj[@"LOCATION"];
                 [self.modelArray addObject:model];
             }
-            [MBProgressHUD hideHUDForView:self.stockView animated:YES];
+            //[MBProgressHUD hideHUDForView:self.stockView animated:YES];
             [self.stockView reloadStockView];
             [self.stockView.jjStockTableView.mj_header endRefreshing];
         }
