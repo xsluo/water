@@ -23,6 +23,8 @@
 		AA6D87401FFB7928003CBDD3 /* JJStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D873C1FFB7928003CBDD3 /* JJStockView.m */; };
 		AA6D87411FFB7928003CBDD3 /* JJStockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D873E1FFB7928003CBDD3 /* JJStockScrollView.m */; };
 		AA6D87441FFB7958003CBDD3 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6D87421FFB7958003CBDD3 /* StationViewController.m */; };
+		AA6F57B02070E06800884FBF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6F57AF2070E06800884FBF /* LoginViewController.m */; };
+		AA6F57B32071028700884FBF /* MyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6F57B22071028700884FBF /* MyTextField.m */; };
 		AA73C3F81FFDDF5B00134D99 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AA73C3CC1FFDDF5B00134D99 /* MJRefreshAutoFooter.m */; };
 		AA73C3F91FFDDF5B00134D99 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AA73C3CE1FFDDF5B00134D99 /* MJRefreshBackFooter.m */; };
 		AA73C3FA1FFDDF5B00134D99 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AA73C3D01FFDDF5B00134D99 /* MJRefreshComponent.m */; };
@@ -84,6 +86,10 @@
 		AA6D873E1FFB7928003CBDD3 /* JJStockScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJStockScrollView.m; sourceTree = "<group>"; };
 		AA6D87421FFB7958003CBDD3 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StationViewController.m; path = ../StationViewController.m; sourceTree = "<group>"; };
 		AA6D87431FFB7958003CBDD3 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StationViewController.h; path = ../StationViewController.h; sourceTree = "<group>"; };
+		AA6F57AE2070E06800884FBF /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		AA6F57AF2070E06800884FBF /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		AA6F57B12071028700884FBF /* MyTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTextField.h; sourceTree = "<group>"; };
+		AA6F57B22071028700884FBF /* MyTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTextField.m; sourceTree = "<group>"; };
 		AA73C3CB1FFDDF5B00134D99 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		AA73C3CC1FFDDF5B00134D99 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		AA73C3CD1FFDDF5B00134D99 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -318,12 +324,16 @@
 				AA95D58B1FBBC8A5008E2573 /* MapViewController.m */,
 				AA1BBEA71FD3E98F0025074A /* UploadViewController.h */,
 				AA1BBEA81FD3E98F0025074A /* UploadViewController.m */,
+				AA396ABF1FBE02E200CF1AE1 /* ViewController.h */,
+				AA396AC01FBE02E200CF1AE1 /* ViewController.m */,
+				AA6F57AE2070E06800884FBF /* LoginViewController.h */,
+				AA6F57AF2070E06800884FBF /* LoginViewController.m */,
+				AA6F57B12071028700884FBF /* MyTextField.h */,
+				AA6F57B22071028700884FBF /* MyTextField.m */,
 				AA396AC21FBE02F400CF1AE1 /* XDMultTableView.h */,
 				AA396AC31FBE02F400CF1AE1 /* XDMultTableView.m */,
 				AA95D5871FBBC8A5008E2573 /* AppDelegate.h */,
 				AA95D5881FBBC8A5008E2573 /* AppDelegate.m */,
-				AA396ABF1FBE02E200CF1AE1 /* ViewController.h */,
-				AA396AC01FBE02E200CF1AE1 /* ViewController.m */,
 				AA95D5901FBBC8A5008E2573 /* Main.storyboard */,
 				AA95D5931FBBC8A5008E2573 /* Assets.xcassets */,
 				AA95D5951FBBC8A5008E2573 /* LaunchScreen.storyboard */,
@@ -510,6 +520,7 @@
 				AA73C4071FFDDF5B00134D99 /* MJRefreshConst.m in Sources */,
 				AA396AC41FBE02F400CF1AE1 /* XDMultTableView.m in Sources */,
 				AA73C4041FFDDF5B00134D99 /* MJRefreshNormalHeader.m in Sources */,
+				AA6F57B02070E06800884FBF /* LoginViewController.m in Sources */,
 				AA73C40B1FFDDF5B00134D99 /* UIView+MJExtension.m in Sources */,
 				AA73C40A1FFDDF5B00134D99 /* UIScrollView+MJRefresh.m in Sources */,
 				AA73C3FA1FFDDF5B00134D99 /* MJRefreshComponent.m in Sources */,
@@ -530,6 +541,7 @@
 				AA1BBEA91FD3E98F0025074A /* UploadViewController.m in Sources */,
 				AA73C3F81FFDDF5B00134D99 /* MJRefreshAutoFooter.m in Sources */,
 				AA95D5891FBBC8A5008E2573 /* AppDelegate.m in Sources */,
+				AA6F57B32071028700884FBF /* MyTextField.m in Sources */,
 				AA95D58C1FBBC8A5008E2573 /* MapViewController.m in Sources */,
 				AA95D5861FBBC8A4008E2573 /* main.m in Sources */,
 				AA73C4091FFDDF5B00134D99 /* UIScrollView+MJExtension.m in Sources */,
